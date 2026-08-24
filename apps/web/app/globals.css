@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Visual Direction 10. Design Constraints, applied globally */
+@layer base {
+  html {
+    background-color: #0a0a0f;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-body;
+    font-size: 16px;
+  }
+
+  /* All interactive elements must have a visible focus state
+     (2px Accent Gold outline, 2px offset) for keyboard navigation. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #c9a84c;
+    outline-offset: 2px;
+  }
+}

@@ -1,0 +1,23 @@
+# Node / Next.js
+node_modules/
+.next/
+out/
+apps/web/.env.local
+apps/web/.env*.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+services/canon-service/.env
+*.egg-info/
+
+# Editors / OS
+.DS_Store
+.vscode/
+*.swp
+
+# Env
+.env
+.env.local
