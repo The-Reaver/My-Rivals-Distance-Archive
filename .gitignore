@@ -4,6 +4,7 @@ node_modules/
 out/
 apps/web/.env.local
 apps/web/.env*.local
+*.tsbuildinfo
 
 # Python
 __pycache__/
