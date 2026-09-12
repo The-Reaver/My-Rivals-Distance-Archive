@@ -14,35 +14,83 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-12
 
-Two real commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
-exists yet). This is well past "Phase 0: establish ground truth" as the Game Plan originally
-scoped it on 20 August 2026 — most of Phase 0's audit and a meaningful slice of Phase 1
-(RLS, identity-fraud groundwork) already landed in the first commit. What follows records
-what was verified this session, not a fresh audit from zero.
+Eight commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
+it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
+Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
+verified as of this pass, not a fresh audit from zero each time.
 
-**Verified working this session:**
-- `services/canon-service`: `pytest` — 11/11 pass (`app/ratification.py`'s draft → under_review
-  → ratified → locked state machine, tested against an in-memory fake repo, zero DB dependency).
-- `apps/web`: `npm run typecheck` clean, `npm run build` succeeds (Next.js/Turbopack). Route
-  output confirms `/` is static (crawlable, no JS required — the Level 0 SEO job) and
-  `/characters` is dynamic (server-rendered against live Supabase data via RLS).
-- `npm audit`: patched `next` 16.3.2 → 16.3.5 (was carrying a critical unauthenticated-RCE
-  advisory plus a high-severity transitive `sharp` advisory pulled in by the vulnerable
-  `next` range). `npm audit` now reports zero vulnerabilities. Typecheck and build re-verified
-  clean after the bump.
-- Git history and tracked files checked for leaked secrets (P0-1's "nearly free" hygiene
-  check): clean. The only credential-shaped value anywhere is `apps/web/.env.example`'s
-  `NEXT_PUBLIC_SUPABASE_ANON_KEY` — a publishable key that is safe to commit by design (RLS,
-  not secrecy, is what protects it; see `supabase/migrations/0001_operational_schema.sql`'s
-  header comment). No service-role key, no Anthropic key, no `.env`/`.env.local` ever
-  committed.
+**This session's work (non-blocking scaffolding, run in parallel while the real Brain Trust
+review's device-bridge session was being set up separately):**
+- Patched a critical Next.js RCE (`next` 16.3.2 → 16.3.5); `npm audit` clean.
+- `/archive` + `/archive/[id]`: the P1-2 reader surface for `archive_documents` — the ten
+  Knowledge Core document types that had nowhere to render before this. Same RLS-gated
+  server-component pattern as `/characters`.
+- Admin auth gate: passwordless (magic-link) sign-in at `/admin/login`, a `proxy.ts` session
+  refresh (Next.js 16's convention — see below), and an `/admin/(dashboard)` route group
+  gated on `reader_profiles.is_admin`. UX convenience only; RLS is the real boundary.
+- `/admin/chronicles` (+ `/new`, `/[id]`): the P1-4 side-by-side markdown editor for
+  `chronicle_entries` — the game plan's own named production bottleneck (10 entries existed
+  against 18 characters, nine with none, and 22 battles for Kanja alone).
+- `app/extraction.py` (canon-service): the P1-3 writer-reference → reader-facing commit
+  logic — pure, DB-agnostic, unit-tested like `ratification.py`. No HTTP route yet, matching
+  `main.py`'s own stated scope. One default taken directly from the game plan's Phase 5 text
+  rather than invented here: every extraction lands `storage_mode='vault'`, never `live`
+  directly, regardless of `book_placement` — going live is always a later, separate,
+  human action.
+- `supabase/migrations/0006_p0_4_fraud_control_mechanics.sql`: closed the two genuinely
+  mechanical P0-4 gaps — a trigger that credits a `referrals` row the instant (and only the
+  instant) `email_confirmed_at` flips from null, and a per-reader rate limit
+  (20/hour) on `chronicle_requests` inserts, closing the gap the existing
+  `unique(character_id, reader_id)` constraint didn't cover (bursting requests across many
+  *different* characters). **Verified for real**: spun up a local Postgres 16 cluster,
+  applied all six migrations against a scratch database (using a minimal `auth` schema stub
+  plus the standard `anon`/`authenticated`/`service_role` roles — now checked into
+  `supabase/testing/local_auth_stub.sql` for reuse), and exercised both triggers end to end
+  before tearing the scratch database down. Confirmed genuinely NOT attempted, not silently
+  skipped: signup-endpoint rate limiting and disposable-domain blocking are GoTrue
+  dashboard/config on the still-paused Supabase project, not expressible in a migration;
+  `referrals.signup_ip_hash_match` / `reader_profiles.signup_ip_hash` stay unpopulated
+  because Supabase Auth's signup call goes straight from the browser to GoTrue, bypassing
+  this app's own server — populating either needs a custom signup Route Handler, a real
+  architecture change to "frictionless signup," not a mechanical fix.
+- `.github/workflows/ci.yml`: no CI existed before this. Three jobs — `apps/web` (typecheck +
+  build), `canon-service` (pytest), and `migrations` (applies every migration against a
+  `postgres:16` service container using the checked-in auth/role stub) — each automating a
+  check this session ran by hand.
+- Next.js flagged the `middleware.ts` convention as deprecated in favor of `proxy.ts` mid-session
+  (16.3.5's own build output); ran the official codemod rather than leave a freshly-written
+  file already on a deprecated path.
+
+**Verified working (cumulative):**
+- `services/canon-service`: `pytest` — 22/22 pass (`ratification.py`'s state machine, 11
+  tests; `extraction.py`'s commit logic, 11 tests). Zero DB dependency.
+- `apps/web`: `npm run typecheck` clean, `npm run build` succeeds. Static routes: `/`,
+  `/admin/login`. Dynamic (RLS-gated, server-rendered): `/characters`, `/archive`,
+  `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`), `/auth/callback`.
+- `npm audit`: zero vulnerabilities.
+- Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
+  the publishable anon key being safe by design).
+- All 6 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+  parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
 
 ```
 apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailwind.
-                            Reader-facing frontend. Talks to Supabase directly with the
-                            anon/publishable key; RLS is the real enforcement point.
+  app/page.tsx                Landing (static, the Level 0 door).
+  app/characters/              Character Index (dynamic, RLS-gated).
+  app/archive/                 P1-2: archive_documents reader (index + [id]).
+  app/admin/login/              Magic-link admin sign-in (outside the auth gate).
+  app/admin/(dashboard)/         Gated on reader_profiles.is_admin (route group, no URL
+                                 segment of its own): dashboard home + /chronicles editor.
+  app/auth/callback/            Exchanges the magic-link code for a session cookie.
+  proxy.ts                      Session-refresh (Next.js 16's "proxy" convention, formerly
+                                 "middleware.ts" -- renamed via the official codemod).
+  components/Markdown.tsx       Renders body_markdown onto the Visual Direction design
+                                 tokens (no Tailwind typography plugin dependency).
+  components/ChronicleEditor.tsx  Shared create/edit form + live preview, used by both
+                                 /admin/chronicles/new and /admin/chronicles/[id].
 services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-heavy or
                             canon-graph-shaped: AI-Parse, bulk ingestion, the Knowledge
                             Core ratification engine, extraction commits, demand-score
@@ -50,7 +98,9 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
                             Railway's private network. Auth: Supabase JWT verified against
                             the project's JWKS endpoint (asymmetric keys, no shared secret
                             held by this service).
-supabase/migrations/       5 migrations, applied in order:
+  app/ratification.py         draft -> under_review -> ratified -> locked state machine.
+  app/extraction.py            Writer-reference -> reader-facing commit logic (P1-3).
+supabase/migrations/       6 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -72,6 +122,14 @@ supabase/migrations/       5 migrations, applied in order:
   0005_seed_verification_data.sql   Two placeholder characters + zeroed demand_scores rows,
                                      explicitly scaffold-only, meant to be deleted once real
                                      content enters through the Knowledge Core pipeline.
+  0006_p0_4_fraud_control_mechanics.sql  Referral-crediting-on-confirmed-email trigger,
+                                     chronicle_requests rate limiting (20/hour/reader).
+supabase/testing/
+  local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
+                             anon/authenticated/service_role roles. NEVER run against the
+                             real Supabase project (it already has the genuine versions).
+.github/workflows/ci.yml   Three jobs: apps/web (typecheck+build), canon-service (pytest),
+                            migrations (apply against a postgres:16 service container).
 ```
 
 ## P0-2 source-document contradictions: resolved-in-code status
@@ -81,44 +139,41 @@ documents plus one orphan table. Reading the actual schema/code against each:
 
 | # | Contradiction | Resolved in code as | Still open? |
 |---|---|---|---|
-| 1 | RLS shipped or not | Shipped and verified this session — all 13 `public` tables + all 5 `knowledge_core` tables have RLS enabled with policies (or, for `knowledge_core`, RLS + a hard REVOKE). | No, but full RLS re-verification via `mcp__Supabase__get_advisors` still wants a live, unpaused project — see below. |
+| 1 | RLS shipped or not | Shipped — all 13 `public` tables + all 5 `knowledge_core` tables have RLS enabled with policies (or, for `knowledge_core`, RLS + a hard REVOKE). All six migrations verified to apply cleanly against a real Postgres 16 instance. | No, but a live security-advisor pass via `mcp__Supabase__get_advisors` still wants an unpaused project — see below. |
 | 2 | Typography: Cormorant/Source Sans Pro vs. Playfair/Inter/JetBrains Mono | Playfair Display / Inter / JetBrains Mono, exactly as Visual Direction v1.0 mandated, wired via `next/font/google` in `app/layout.tsx` and exposed as Tailwind `font-display`/`font-body`/`font-mono`. | No. |
 | 3 | Text color `#e8e6e0` vs `#E8E6E3` | `#E8E6E3` (Visual Direction value), in `tailwind.config.ts`. | No. |
-| 4 | Level 2 rule: "2 of 3" vs. "3 reads OR share OR 2 requests" | **Not yet implemented either way.** No application code computes a Level 1→2 transition yet (Phase 2 work — the reader loop isn't built). `reader_profiles.clearance_level` exists as a column but nothing writes to it beyond its default. | **Yes — still a real open decision for whoever builds Phase 2, exactly as the Game Plan flags it ("for the author's judgment, unresolvable from the documents").** |
-| 5 | Landing page: character grid vs. "a door, not a brochure" | Built as the door: `app/page.tsx` is a static hero + tagline + single "Enter the Archive" CTA, no grid, no carousel. The grid lives separately at `/characters` (`app/characters/page.tsx`), sorted by demand score. | No. |
-| 6 | Dossier-cover visibility: Level 1 unlock vs. publicly visible | Public/Level 0 — `characters` table has an unconditional `for select using (true)` policy, and the schema comment at `chronicle_entries` records this as the deliberate P0-2 resolution ("characters are always publicly selectable, matching the SEO discovery layer requirement"). | No. |
-| 7 | World-briefing categories: "9 categories" naming 8, vs. "nine tabs shipped" | Nine, enumerated in `world_briefings.category`'s check constraint: physics, politics, factions, events, geography, arsenal, technology, locations, other. | No. |
-| 8 | Framework: Next.js vs. React+TanStack Router | Next.js 16 (App Router). `apps/web/package.json` has no TanStack dependency at all. | No. |
-| — | Orphan: `quiz_questions` (11 seeded rows in the source docs, no reader route, no admin section) | Table exists with RLS (`authenticated`-only select, matching the Game Plan's Idea 6 resolution: diagnostic, never a clearance gate) but **is not seeded** in this repo (0005 only seeds `characters`/`demand_scores`) and **has no reader route yet**. | **Yes — still genuinely undecided whether/when P3-1 (quiz as diagnostic) gets built.** Not blocking anything else. |
+| 4 | Level 2 rule: "2 of 3" vs. "3 reads OR share OR 2 requests" | **Still not implemented either way.** No application code computes a Level 1→2 transition yet. `reader_profiles.clearance_level` exists as a column but nothing writes to it beyond its default. | **Yes — still a real open decision for whoever builds the clearance-transition logic, exactly as the Game Plan flags it ("for the author's judgment, unresolvable from the documents").** |
+| 5 | Landing page: character grid vs. "a door, not a brochure" | Built as the door: `app/page.tsx` is a static hero + tagline + single "Enter the Archive" CTA, no grid, no carousel. The grid lives separately at `/characters`, sorted by demand score. | No. |
+| 6 | Dossier-cover visibility: Level 1 unlock vs. publicly visible | Public/Level 0 — `characters` table has an unconditional `for select using (true)` policy. | No. |
+| 7 | World-briefing categories: "9 categories" naming 8, vs. "nine tabs shipped" | Nine, enumerated in `world_briefings.category`'s check constraint. | No. |
+| 8 | Framework: Next.js vs. React+TanStack Router | Next.js 16 (App Router). No TanStack dependency anywhere. | No. |
+| — | Orphan: `quiz_questions` (11 seeded rows in the source docs, no reader route, no admin section) | Table exists with RLS (`authenticated`-only select, matching the Game Plan's Idea 6 resolution: diagnostic, never a clearance gate) but **is not seeded** and **has no reader route yet**. | **Yes — still genuinely undecided whether/when P3-1 (quiz as diagnostic) gets built.** Not blocking anything else. |
 
 Net: 7 of 8 named contradictions plus the RLS status question are resolved and shipped.
-Two items remain genuinely open for Abad's own call, exactly as the Game Plan itself says
-only he can ratify them: **the Level 2 unlock rule**, and **whether/when to build the
-quiz_questions diagnostic (P3-1)**. Neither blocks any other work — they only need a
-decision before whoever builds Phase 2's reader-loop completion (P1-1 through P1-6) writes
-the clearance-transition logic.
+Two items remain genuinely open for Abad's own call: **the Level 2 unlock rule**, and
+**whether/when to build the quiz_questions diagnostic (P3-1)**. Neither blocks any other
+work — they only need a decision before someone writes the clearance-transition logic.
 
 ## What P0-3/P0-4 verification still needs
 
 The Supabase project (`lords-of-cian-archive`, id `dghkxaclaeluheahdsne`) is currently
-paused, per the Knowledge Core repo's own CLAUDE.md. This session confirmed the *migration
-files* implement default-deny RLS, per-table clearance-aware policies, and the
-`knowledge_core` isolation the Game Plan's Phase 1 calls for — but that is a read of the SQL,
-not a live security-advisor pass against a running database. Before treating P0-3 as fully
-closed: unpause the project and run `mcp__Supabase__get_advisors` (or Supabase's dashboard
-equivalent) to confirm no RLS warnings on any of the 18 tables across both schemas, and spot-
-check with a real Level 1 test account that it genuinely cannot read Level 2/3 content,
-another user's `reader_profiles` row, or the referral graph.
+paused, per the Knowledge Core repo's own CLAUDE.md. All six migration files (including
+0006) are confirmed to apply cleanly and behave correctly against a real Postgres 16
+instance — but that's a local scratch database, not the actual live project. Before
+treating P0-3 as fully closed: unpause the project and run `mcp__Supabase__get_advisors`
+(or Supabase's dashboard equivalent) to confirm no RLS warnings on any of the 18 tables
+across both schemas, and spot-check with a real Level 1 test account that it genuinely
+cannot read Level 2/3 content, another user's `reader_profiles` row, or the referral graph.
 
-P0-4 (closing the identity/fraud hole) is partially in place at the schema level already:
-`chronicle_requests` has a `unique (character_id, reader_id)` constraint (stops one account
-from inflating its own request count), `reader_profiles.email_confirmed_at` is synced from
-`auth.users` via trigger, and `referrals` carries a `signup_ip_hash_match` flag for review.
-Not yet built: gating referral-crediting and request-counting on confirmed email (the
-Game Plan's actual P0-4 minimum-viable fix, item 2), rate limiting on signup/request
-endpoints, and anomaly surfacing. `referrals.credited` is never set to `true` anywhere in
-this codebase yet — the schema comment on the signup trigger says this is deliberate
-("referral crediting itself happens later, out-of-band, once fraud heuristics clear it").
+P0-4 (closing the identity/fraud hole): the mechanical gaps are now closed —
+`chronicle_requests` still has its `unique(character_id, reader_id)` constraint, plus (new,
+0006) a 20/hour per-reader rate limit across *any* characters, and `referrals.credited` now
+flips to `true` automatically and only on confirmed email (verified end-to-end against a
+real Postgres instance this session, not just read from the SQL). What's still open, and
+needs either a live project or a real architecture decision rather than a migration:
+signup-endpoint rate limiting and disposable-domain blocking (GoTrue dashboard/config), and
+populating `signup_ip_hash_match`/`signup_ip_hash` (needs a custom signup Route Handler,
+since Supabase Auth's signup call bypasses this app's own server entirely today).
 
 ## Local dev
 
@@ -137,7 +192,17 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt
 pytest                        # unit tests only, no DB/network needed
 uvicorn app.main:app --reload --port 8000
+
+# Verifying migrations locally (what CI does) -- needs a local Postgres server, not Supabase:
+createdb cian_dev_check
+psql -d cian_dev_check -f supabase/testing/local_auth_stub.sql   # NEVER run against real Supabase
+for f in supabase/migrations/*.sql; do psql -d cian_dev_check -v ON_ERROR_STOP=1 -f "$f"; done
 ```
+
+To reach `/admin`, an admin account has to exist first: sign in once via `/admin/login`
+(creates the `auth.users`/`reader_profiles` row through the normal magic-link flow against
+a real, unpaused Supabase project), then manually set that row's `reader_profiles.is_admin`
+to `true` — nothing in this app can grant that flag to itself.
 
 `services/canon-service` needs `SUPABASE_URL` set (for JWKS verification) to serve anything
 beyond `/health`; no service-role key lives in this repo or its `.env.example` anywhere —
