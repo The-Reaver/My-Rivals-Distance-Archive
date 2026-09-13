@@ -12,13 +12,30 @@ Standing instruction from Abad, 2026-09-03: canon-writing continues in the Knowl
 repo; new canon material is drafted so it sets up this archive for strong SEO/GEO and a
 gamified five-tier reader-unlock model, but building this app is a separate, parallel track.
 
-## Status as of 2026-09-12
+## Status as of 2026-09-13
 
-Eight commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Nine commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
 verified as of this pass, not a fresh audit from zero each time.
+
+**2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
+skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
+(real `PostgresKnowledgeCoreRepository` / `PostgresExtractionRepository` implementations of
+those modules' Protocols), `app/admin.py` (`require_admin`, checking
+`reader_profiles.is_admin` on canon-service's own DB connection), and
+`app/routes_knowledge_core.py` (`POST /knowledge-core/entries/{id}/transition`,
+`POST /knowledge-core/extractions`, both admin-gated, each one Postgres transaction) now give
+both modules real, callable HTTP endpoints. Verified against a real local Postgres 16
+instance, not just unit tests against fakes: 8 new repository-level integration tests plus 4
+route-level tests via FastAPI's `TestClient` (34 tests total in the suite now, up from 22;
+both new files skip themselves without `TEST_DATABASE_URL`, confirmed the base suite still
+runs DB-free — 22 passed/12 skipped without it, 34 passed with it). CI's `canon-service` job
+now applies the same auth-stub-plus-migrations sequence as the `migrations` job against its
+own Postgres service container and runs these automatically. Added
+`services/canon-service/.env.example` documenting `DATABASE_URL` (service_role, direct
+Postgres — distinct from `SUPABASE_URL`'s JWKS-only use) and `TEST_DATABASE_URL`.
 
 **This session's work (non-blocking scaffolding, run in parallel while the real Brain Trust
 review's device-bridge session was being set up separately):**
@@ -33,11 +50,11 @@ review's device-bridge session was being set up separately):**
   `chronicle_entries` — the game plan's own named production bottleneck (10 entries existed
   against 18 characters, nine with none, and 22 battles for Kanja alone).
 - `app/extraction.py` (canon-service): the P1-3 writer-reference → reader-facing commit
-  logic — pure, DB-agnostic, unit-tested like `ratification.py`. No HTTP route yet, matching
-  `main.py`'s own stated scope. One default taken directly from the game plan's Phase 5 text
-  rather than invented here: every extraction lands `storage_mode='vault'`, never `live`
-  directly, regardless of `book_placement` — going live is always a later, separate,
-  human action.
+  logic — pure, DB-agnostic, unit-tested like `ratification.py`. One default taken directly
+  from the game plan's Phase 5 text rather than invented here: every extraction lands
+  `storage_mode='vault'`, never `live` directly, regardless of `book_placement` — going live
+  is always a later, separate, human action. (2026-09-13: now has a real, admin-gated HTTP
+  route too — see the follow-up note above.)
 - `supabase/migrations/0006_p0_4_fraud_control_mechanics.sql`: closed the two genuinely
   mechanical P0-4 gaps — a trigger that credits a `referrals` row the instant (and only the
   instant) `email_confirmed_at` flips from null, and a per-reader rate limit
@@ -63,8 +80,11 @@ review's device-bridge session was being set up separately):**
   file already on a deprecated path.
 
 **Verified working (cumulative):**
-- `services/canon-service`: `pytest` — 22/22 pass (`ratification.py`'s state machine, 11
-  tests; `extraction.py`'s commit logic, 11 tests). Zero DB dependency.
+- `services/canon-service`: `pytest` — 34/34 pass. 22 DB-free (`ratification.py`'s state
+  machine, 11 tests; `extraction.py`'s commit logic, 11 tests) plus 12 Postgres integration
+  tests (8 repository-level, 4 route-level) that skip themselves without `TEST_DATABASE_URL`
+  set. `services/canon-service/.env.example` documents both `DATABASE_URL` (service_role,
+  direct Postgres) and `TEST_DATABASE_URL`.
 - `apps/web`: `npm run typecheck` clean, `npm run build` succeeds. Static routes: `/`,
   `/admin/login`. Dynamic (RLS-gated, server-rendered): `/characters`, `/archive`,
   `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`), `/auth/callback`.
@@ -100,6 +120,12 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
                             held by this service).
   app/ratification.py         draft -> under_review -> ratified -> locked state machine.
   app/extraction.py            Writer-reference -> reader-facing commit logic (P1-3).
+  app/db.py                    Sync psycopg_pool connection pool (lenient if DATABASE_URL unset).
+  app/repositories.py          Real Postgres-backed implementations of both modules' Protocols.
+  app/admin.py                 require_admin: layers reader_profiles.is_admin onto require_user.
+  app/routes_knowledge_core.py  POST /knowledge-core/entries/{id}/transition,
+                                 POST /knowledge-core/extractions -- both admin-gated, each
+                                 one Postgres transaction.
 supabase/migrations/       6 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
