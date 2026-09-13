@@ -14,11 +14,63 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Nine commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Ten commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
 verified as of this pass, not a fresh audit from zero each time.
+
+**2026-09-13, same-day follow-up #3 — the reader loop's missing core.** Everything before this
+pass was either admin tooling or a read-only reader surface with nowhere for a reader to
+actually *become* a reader. `/admin/chronicles`' editor and `/archive/[id]` both already linked
+to `/characters/[slug]`, and its own list linked to per-entry chronicle URLs, none of which
+existed — this closes both, plus signup itself:
+- `supabase/migrations/0007_signup_follow_character.sql`: extends `handle_new_user()` (via
+  `CREATE OR REPLACE`, preserving 0003/0004's EXECUTE revocation, restated explicitly anyway)
+  to read `followed_character_id` out of signup metadata and populate the column that already
+  existed on `reader_profiles` with no writer. Defensive by construction: a malformed UUID
+  string, a well-formed UUID with no matching `characters` row, and a missing key all fail
+  safe to `null` inside a `begin/exception` block rather than erroring the signup trigger and
+  blocking account creation. **Verified for real** against local Postgres: all four cases
+  (valid, malformed, nonexistent, absent) produce the right `followed_character_id` outcome,
+  the pre-existing referral-crediting logic still fires correctly in the same trigger run, and
+  `\df+` confirms EXECUTE is held only by the function owner — no `PUBLIC`/`anon`/
+  `authenticated` grant survived the replace.
+- `/characters/[slug]`: the character dossier page — `dossier_cover` markdown, hook line,
+  demand score, aliases, and a `chronicle_entries` list (already RLS-filtered to what this
+  visitor's clearance allows). Distinguishes two different "nothing to show" states using
+  `classification_status`'s own documented meaning: `pending` (nothing written yet) offers the
+  request flow below; `active` with zero visible rows means Chronicles exist above this
+  reader's clearance, where a request would be meaningless, so none is offered.
+- `/characters/[slug]/chronicles/[entryNumber]`: the chronicle reader — every admin editor
+  link and every character-page link now resolves. `entry_number` is scoped per-character
+  (`unique(character_id, entry_number)`, not a global sequence), so the route resolves the
+  character row first. Renders `body_markdown` plus `onyx_commentary` as a distinct
+  narrator-voice block when present.
+- `components/RequestChronicleButton.tsx`: writes directly to `chronicle_requests` from the
+  browser (RLS `insert_own` policy + the existing `unique(character_id, reader_id)` constraint
+  do the real work, same direct-write pattern `ChronicleEditor.tsx` already uses) — no
+  canon-service proxy needed, this table isn't `knowledge_core`. Deliberately scoped to just
+  the write: the public "N readers requested this" ledger and the release-notification loop
+  (game plan Ideas 1–2) are separate features gated on their own product decisions (a
+  pending-character stat-bar variant, an Activity Feed) and aren't part of this pass.
+- `/signup` (+ `components/SignupForm.tsx`) and `/welcome`: the actual reader-facing signup
+  flow — there was none before this, only the admin magic-link gate. Same
+  `auth.signInWithOtp` mechanism as admin login, but with `shouldCreateUser: true` (admin
+  login deliberately omits this — only pre-existing admins should land there) and
+  `followed_character_id`/`referred_by_code` riding in signup metadata for 0007's trigger to
+  consume. `?follow=<characterId>` and `?ref=<code>` query params let
+  `RequestChronicleButton` (and a future referral-share flow) pre-fill the form; both stay
+  editable. `/welcome` is the `next` target after the magic-link round-trip — reads the new
+  profile back, shows the followed character (if any) and the reader's own referral code.
+- Deliberately out of scope for this pass: reads/progress-tracking instrumentation, shares,
+  quiz UI, the request-ledger/notification features named above, and anything touching demand
+  score computation — the last is one of the four decisions explicitly queued for the real
+  Brain Trust below, not something to guess at here.
+- Verified: `npm run typecheck` and `npm run build` both clean (new routes `/characters/[slug]`,
+  `/characters/[slug]/chronicles/[entryNumber]`, `/signup`, `/welcome` all present in the build
+  output); `services/canon-service`'s DB-free test subset still 22 passed/19 skipped
+  (unaffected — no canon-service changes this pass).
 
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
@@ -104,13 +156,14 @@ review's device-bridge session was being set up separately):**
   `services/canon-service/.env.example` documents both `DATABASE_URL` (service_role, direct
   Postgres) and `TEST_DATABASE_URL`.
 - `apps/web`: `npm run typecheck` clean, `npm run build` succeeds. Static routes: `/`,
-  `/admin/login`. Dynamic (RLS-gated, server-rendered, or canon-service-backed):
-  `/characters`, `/archive`, `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`,
-  `/[id]`), `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`.
+  `/admin/login`, `/signup`. Dynamic (RLS-gated, server-rendered, or canon-service-backed):
+  `/characters`, `/characters/[slug]`, `/characters/[slug]/chronicles/[entryNumber]`,
+  `/archive`, `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`),
+  `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`, `/welcome`.
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
-- All 6 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+- All 7 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
   parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
@@ -119,7 +172,11 @@ review's device-bridge session was being set up separately):**
 apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailwind.
   app/page.tsx                Landing (static, the Level 0 door).
   app/characters/              Character Index (dynamic, RLS-gated).
+  app/characters/[slug]/        Character dossier + chronicle_entries list.
+  app/characters/[slug]/chronicles/[entryNumber]/  The chronicle reader.
   app/archive/                 P1-2: archive_documents reader (index + [id]).
+  app/signup/, app/welcome/     Reader-facing signup (magic-link, shouldCreateUser:true)
+                                 and its post-callback landing page.
   app/admin/login/              Magic-link admin sign-in (outside the auth gate).
   app/admin/(dashboard)/         Gated on reader_profiles.is_admin (route group, no URL
                                  segment of its own): dashboard home + /chronicles editor.
@@ -130,6 +187,12 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
                                  tokens (no Tailwind typography plugin dependency).
   components/ChronicleEditor.tsx  Shared create/edit form + live preview, used by both
                                  /admin/chronicles/new and /admin/chronicles/[id].
+  components/RequestChronicleButton.tsx  Direct browser write to chronicle_requests
+                                 (RLS + unique(character_id, reader_id) do the fraud-control
+                                 work); renders a sign-up prompt instead when signed out.
+  components/SignupForm.tsx     Reader signup (magic-link, shouldCreateUser:true), reads
+                                 ?follow=/?ref= query params to pre-fill metadata for
+                                 0007's trigger.
   app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
                                  /knowledge-core/entries* routes (never queries
                                  knowledge_core directly -- it's invisible to anon/
@@ -155,7 +218,7 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
                                  POST .../{id}/transition, POST /knowledge-core/extractions --
                                  all admin-gated; the two POSTs each one Postgres transaction.
-supabase/migrations/       6 migrations, applied in order:
+supabase/migrations/       7 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -179,6 +242,9 @@ supabase/migrations/       6 migrations, applied in order:
                                      content enters through the Knowledge Core pipeline.
   0006_p0_4_fraud_control_mechanics.sql  Referral-crediting-on-confirmed-email trigger,
                                      chronicle_requests rate limiting (20/hour/reader).
+  0007_signup_follow_character.sql  Extends handle_new_user() to populate
+                                     reader_profiles.followed_character_id from signup
+                                     metadata (fails safe to null on anything malformed).
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
                              anon/authenticated/service_role roles. NEVER run against the
