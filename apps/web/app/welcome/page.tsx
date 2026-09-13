@@ -16,11 +16,22 @@ export default async function WelcomePage() {
     redirect("/signup");
   }
 
-  const { data: profile } = await supabase
-    .from("reader_profiles")
-    .select("referral_code, followed_character_id, characters(slug, name)")
-    .eq("id", user.id)
-    .maybeSingle();
+  const [{ data: profile }, { data: alsoDrawnTo }] = await Promise.all([
+    supabase
+      .from("reader_profiles")
+      .select("referral_code, followed_character_id, characters(slug, name)")
+      .eq("id", user.id)
+      .maybeSingle(),
+    // Also Drawn To (Idea 4): optional secondary follows, added from the
+    // Character Index. "Plain text-link additions, vertical feed" per the
+    // game plan -- this is the one place that feed is shown, since no
+    // broader reader-profile page exists yet.
+    supabase
+      .from("also_drawn_to")
+      .select("character_id, created_at, characters(slug, name)")
+      .eq("reader_id", user.id)
+      .order("created_at", { ascending: false }),
+  ]);
 
   const followedCharacter = profile
     ? Array.isArray(profile.characters)
@@ -50,6 +61,30 @@ export default async function WelcomePage() {
           </Link>{" "}
           to find someone to follow.
         </p>
+      )}
+
+      {alsoDrawnTo && alsoDrawnTo.length > 0 && (
+        <div className="mt-xl">
+          <p className="font-body text-caption text-accent-steel">Also drawn to</p>
+          <ul className="mt-xs space-y-xs">
+            {alsoDrawnTo.map((entry) => {
+              const character = Array.isArray(entry.characters)
+                ? entry.characters[0]
+                : entry.characters;
+              if (!character) return null;
+              return (
+                <li key={entry.character_id}>
+                  <Link
+                    href={`/characters/${character.slug}`}
+                    className="font-body text-body-small text-accent-gold underline underline-offset-2"
+                  >
+                    {character.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       )}
 
       {profile?.referral_code && (

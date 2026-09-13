@@ -14,7 +14,7 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Twelve commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Thirteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
@@ -158,6 +158,38 @@ scoped to the feature that motivated finding the gap.
   build output; all 9 migrations (auth stub + 8 real) apply cleanly against real Postgres 16;
   every functional check above done by hand this session against a scratch database.
 
+**2026-09-13, same-day follow-up #6 — Also Drawn To (Idea 4).** `0009_also_drawn_to.sql`: a
+new `also_drawn_to` table (RLS: select/insert/delete own rows only, no update policy needed --
+it's a pure add/remove set; `unique(reader_id, character_id)` stops duplicate adds). Unlike the
+Standing Requests Ledger (Idea 1, follow-up #5 above), this is deliberately **not** a public
+signal — the game plan frames it purely as internal affinity data ("reveals cross-character
+affinity clusters... which pending character's audience overlaps an already-engaged base"), so
+there's no public view over it, same posture as `reads`/`quiz_attempts`.
+
+`components/AlsoDrawnToToggle.tsx` is a small client-component "island" (same pattern as
+`RequestChronicleButton`) rendered as a **sibling** to each card's own `<a>` link on the
+Character Index, not nested inside it — a `<button>` inside an `<a>` is invalid HTML (no
+interactive content inside interactive content), caught and fixed during this pass rather than
+shipped broken. `/characters` now fetches the signed-in reader's `followed_character_id` and
+their existing `also_drawn_to` rows alongside the character list, and skips rendering the
+toggle for signed-out visitors and for the reader's own required primary follow (toggling
+"also drawn to" the character you already follow is meaningless). `/welcome` gained a new
+section rendering the reader's own list as plain vertical text links — per the game plan's own
+"plain text-link additions, vertical feed" wording — since no broader reader-profile/dashboard
+page exists yet to put it on.
+
+**Verified for real against local Postgres**: as `authenticated` reader A, an own-row insert
+succeeds; a duplicate add of the same character is rejected by the unique constraint; an
+impersonation attempt (inserting with reader B's `reader_id`) is rejected by RLS (`42501`); a
+`SELECT` returns only the caller's own rows; reader A's own-row delete removes only their row,
+confirmed against the underlying table as superuser that reader B's independent row for the
+same character survived untouched; and reader A's attempt to delete reader B's row is a
+genuine no-op (`DELETE 0`), not a silent failure.
+
+Verified: `npm run typecheck` and `npm run build` both clean; all 10 migrations (auth stub + 9
+real) apply cleanly against real Postgres 16; every functional check above done by hand this
+session against a scratch database.
+
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
 (real `PostgresKnowledgeCoreRepository` / `PostgresExtractionRepository` implementations of
@@ -249,7 +281,7 @@ review's device-bridge session was being set up separately):**
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
-- All 8 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+- All 9 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
   parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
@@ -283,6 +315,8 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
   components/ReadingProgressTracker.tsx  Invisible; upserts reads.completion_pct/completed
                                  as a signed-in reader scrolls the chronicle reader.
                                  Monotonic + debounced, writes nothing for signed-out visitors.
+  components/AlsoDrawnToToggle.tsx  Direct browser write to also_drawn_to (Idea 4); a sibling
+                                 to each Character Index card's own <a>, never nested inside it.
   app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
                                  /knowledge-core/entries* routes (never queries
                                  knowledge_core directly -- it's invisible to anon/
@@ -308,7 +342,7 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
                                  POST .../{id}/transition, POST /knowledge-core/extractions --
                                  all admin-gated; the two POSTs each one Postgres transaction.
-supabase/migrations/       8 migrations, applied in order:
+supabase/migrations/       9 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -339,6 +373,8 @@ supabase/migrations/       8 migrations, applied in order:
                                      (public aggregate, view-owner-bypasses-RLS pattern);
                                      notifications table + fulfillment trigger, firing
                                      once per character on its first live chronicle entry.
+  0009_also_drawn_to.sql            also_drawn_to table (reader-own/admin only, NOT public --
+                                     internal affinity data, unlike 0008's ledger).
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
                              anon/authenticated/service_role roles, PLUS the public-schema

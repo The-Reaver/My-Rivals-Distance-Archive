@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { AlsoDrawnToToggle } from "@/components/AlsoDrawnToToggle";
 
 // Visual Direction 6. Character Index -- grid of character cards, sorted by
 // reader demand score by default. This is the verification vertical slice:
@@ -6,10 +7,29 @@ import { createClient } from "@/lib/supabase/server";
 export default async function CharacterIndexPage() {
   const supabase = await createClient();
 
-  const { data: characters, error } = await supabase
-    .from("characters")
-    .select("id, slug, name, hook_line, classification_status, demand_scores(score)")
-    .order("name");
+  const [{ data: characters, error }, { data: userData }] = await Promise.all([
+    supabase
+      .from("characters")
+      .select("id, slug, name, hook_line, classification_status, demand_scores(score)")
+      .order("name"),
+    supabase.auth.getUser(),
+  ]);
+
+  const user = userData.user;
+  let followedCharacterId: string | null = null;
+  let drawnToIds = new Set<string>();
+  if (user) {
+    const [{ data: profile }, { data: drawnRows }] = await Promise.all([
+      supabase
+        .from("reader_profiles")
+        .select("followed_character_id")
+        .eq("id", user.id)
+        .maybeSingle(),
+      supabase.from("also_drawn_to").select("character_id").eq("reader_id", user.id),
+    ]);
+    followedCharacterId = profile?.followed_character_id ?? null;
+    drawnToIds = new Set((drawnRows ?? []).map((row) => row.character_id));
+  }
 
   if (error) {
     return (
@@ -40,26 +60,36 @@ export default async function CharacterIndexPage() {
               : 0;
 
             return (
-              <a
+              <div
                 key={character.id}
-                href={`/characters/${character.slug}`}
                 className="rounded-card border border-border-subtle bg-bg-elevated p-md transition-colors duration-hover hover:border-accent-gold/30"
               >
-                <h2 className="font-display text-card-title text-text-primary">
-                  {character.name}
-                </h2>
-                {character.hook_line && (
-                  <p className="mt-xs font-body text-caption italic text-accent-steel">
-                    {character.hook_line}
+                {/* A <button> can't nest inside this <a> (invalid HTML: no
+                    interactive content inside interactive content), so the
+                    AlsoDrawnToToggle below sits as a sibling instead. */}
+                <a href={`/characters/${character.slug}`} className="block">
+                  <h2 className="font-display text-card-title text-text-primary">
+                    {character.name}
+                  </h2>
+                  {character.hook_line && (
+                    <p className="mt-xs font-body text-caption italic text-accent-steel">
+                      {character.hook_line}
+                    </p>
+                  )}
+                  <p className="mt-sm font-mono text-metric text-accent-gold">
+                    {score} demand
                   </p>
+                  {character.classification_status === "pending" && (
+                    <p className="mt-xs font-body text-caption text-accent-steel">Pending</p>
+                  )}
+                </a>
+                {user && character.id !== followedCharacterId && (
+                  <AlsoDrawnToToggle
+                    characterId={character.id}
+                    initiallyDrawn={drawnToIds.has(character.id)}
+                  />
                 )}
-                <p className="mt-sm font-mono text-metric text-accent-gold">
-                  {score} demand
-                </p>
-                {character.classification_status === "pending" && (
-                  <p className="mt-xs font-body text-caption text-accent-steel">Pending</p>
-                )}
-              </a>
+              </div>
             );
           })}
         </div>
