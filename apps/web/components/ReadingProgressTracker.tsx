@@ -5,6 +5,16 @@ import { createClient } from "@/lib/supabase/client";
 
 const COMPLETE_THRESHOLD_PCT = 95;
 const SAVE_DEBOUNCE_MS = 1500;
+// The Level 2 clearance gate (ratified 2026-09-13) needs server-verified
+// dwell time, since completion_pct/completed below are plain client
+// upserts with nothing stopping a direct API call from faking them. A
+// periodic ping to record_reading_ping() is that verification -- every
+// timestamp it stores comes from the server's own now(), never from this
+// client, so accumulating real dwell time requires the page to actually
+// stay open and scrolled for real wall-clock time. See
+// supabase/migrations/0018_level_2_clearance_gate.sql.
+const READING_PING_INTERVAL_MS = 20_000;
+const READING_PING_MIN_PCT = 50;
 
 // Invisible reading-progress instrumentation for the chronicle reader.
 // Renders nothing -- this is the data-collection half of "start on reading
@@ -36,7 +46,9 @@ export function ReadingProgressTracker({ chronicleEntryId }: { chronicleEntryId:
     let readerId: string | null = null;
     let savedMax = 0;
     let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+    let pingInterval: ReturnType<typeof setInterval> | null = null;
     let ticking = false;
+    let latestPct = 0;
 
     function currentPct(): number {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
@@ -64,11 +76,21 @@ export function ReadingProgressTracker({ chronicleEntryId }: { chronicleEntryId:
       requestAnimationFrame(() => {
         ticking = false;
         const pct = currentPct();
+        latestPct = pct;
         if (pct > savedMax) {
           if (debounceTimer) clearTimeout(debounceTimer);
           debounceTimer = setTimeout(() => commit(pct), SAVE_DEBOUNCE_MS);
         }
       });
+    }
+
+    // Only pings while the page is genuinely visible and scrolled past the
+    // minimum -- a backgrounded or barely-opened tab shouldn't accumulate
+    // dwell credit just because the interval timer is still running.
+    function maybePing() {
+      if (!readerId || document.visibilityState !== "visible") return;
+      if (latestPct < READING_PING_MIN_PCT) return;
+      void supabase.rpc("record_reading_ping", { p_chronicle_entry_id: chronicleEntryId });
     }
 
     function handleVisibilityChange() {
@@ -99,6 +121,8 @@ export function ReadingProgressTracker({ chronicleEntryId }: { chronicleEntryId:
       document.addEventListener("visibilitychange", handleVisibilityChange);
       // Catches an entry short enough to be fully visible without scrolling.
       handleScroll();
+      latestPct = currentPct();
+      pingInterval = setInterval(maybePing, READING_PING_INTERVAL_MS);
     }
 
     init();
@@ -108,6 +132,7 @@ export function ReadingProgressTracker({ chronicleEntryId }: { chronicleEntryId:
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       if (debounceTimer) clearTimeout(debounceTimer);
+      if (pingInterval) clearInterval(pingInterval);
       commit(currentPct());
     };
   }, [chronicleEntryId]);
