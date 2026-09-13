@@ -1,0 +1,52 @@
+[
+ {
+  "rule_id": "MCD-1528",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-ix-the-seat-they-didnt-expect-him-to-win.md",
+  "character_slug": "femi",
+  "arc_label": "Kazi",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1529",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-x-what-the-books-showed.md",
+  "character_slug": "femi",
+  "arc_label": "Kazi",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1530",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-xi-the-offer-with-the-teeth-filed-off.md",
+  "character_slug": "femi",
+  "arc_label": "Kazi",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1531",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-xii-two-fronts-one-war.md",
+  "character_slug": "femi",
+  "arc_label": "Kazi",
+  "entry_number": 4,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1532",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-xiii-the-weight-of-being-inside.md",
+  "character_slug": "femi",
+  "arc_label": "Kazi",
+  "entry_number": 5,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

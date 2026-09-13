@@ -1,0 +1,1022 @@
+[
+ {
+  "rule_id": "MCD-380",
+  "file": "docs/lords-of-cian/chronicles/what-he-chose-to-burn.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 19,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-381",
+  "file": "docs/lords-of-cian/chronicles/the-shape-the-smoke-remembers.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 20,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-382",
+  "file": "docs/lords-of-cian/chronicles/the-signal-honest-ships-learned.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 21,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-413",
+  "file": "docs/lords-of-cian/chronicles/what-the-golden-terror-left-behind.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 49,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-414",
+  "file": "docs/lords-of-cian/chronicles/the-ledger-garren-hask-still-kept.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 50,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-415",
+  "file": "docs/lords-of-cian/chronicles/the-warlord-who-tested-the-crescent.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 51,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-446",
+  "file": "docs/lords-of-cian/chronicles/the-siege-of-the-salt-keep.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 82,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-447",
+  "file": "docs/lords-of-cian/chronicles/the-surrender-that-cost-no-blood.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 83,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-448",
+  "file": "docs/lords-of-cian/chronicles/the-boy-who-didnt-know-his-name.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 84,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-491",
+  "file": "docs/lords-of-cian/chronicles/the-one-who-didnt-want-freedom.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 115,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-492",
+  "file": "docs/lords-of-cian/chronicles/the-crew-that-challenged-the-crescent.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 116,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-493",
+  "file": "docs/lords-of-cian/chronicles/what-ends-when-the-mask-comes-off.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 117,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-543",
+  "file": "docs/lords-of-cian/chronicles/the-armada-at-dead-reckoning.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 148,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-544",
+  "file": "docs/lords-of-cian/chronicles/what-the-sea-took-anyway.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 149,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-545",
+  "file": "docs/lords-of-cian/chronicles/the-grandchildren-of-the-freed.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 150,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-801",
+  "file": "docs/lords-of-cian/chronicles/the-town-that-was-already-afraid.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 406,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-802",
+  "file": "docs/lords-of-cian/chronicles/the-caravan-road.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 407,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-803",
+  "file": "docs/lords-of-cian/chronicles/the-roads-she-started-mapping.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 408,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-804",
+  "file": "docs/lords-of-cian/chronicles/the-one-who-didnt-wake-again.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 409,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-805",
+  "file": "docs/lords-of-cian/chronicles/the-net-built-to-catch-him.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 410,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-806",
+  "file": "docs/lords-of-cian/chronicles/the-harbor-that-wouldnt-take-them.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 411,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-807",
+  "file": "docs/lords-of-cian/chronicles/what-efa-gol-handed-down.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 412,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-808",
+  "file": "docs/lords-of-cian/chronicles/the-blade-at-the-captives-throat.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 413,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-809",
+  "file": "docs/lords-of-cian/chronicles/the-game-the-freed-children-played.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 414,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-810",
+  "file": "docs/lords-of-cian/chronicles/when-the-coat-didnt-answer.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 415,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-811",
+  "file": "docs/lords-of-cian/chronicles/the-first-night-in-the-new-coat.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 416,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-812",
+  "file": "docs/lords-of-cian/chronicles/the-reef-he-didnt-know.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 417,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-813",
+  "file": "docs/lords-of-cian/chronicles/the-weight-the-mask-kept-count-of.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 418,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-814",
+  "file": "docs/lords-of-cian/chronicles/the-isle-that-stopped-needing-him.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 419,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-815",
+  "file": "docs/lords-of-cian/chronicles/the-last-ledger-line.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 420,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-816",
+  "file": "docs/lords-of-cian/chronicles/the-captain-who-surrendered-nothing.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 421,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-817",
+  "file": "docs/lords-of-cian/chronicles/the-chain-that-freed-itself.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 422,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-818",
+  "file": "docs/lords-of-cian/chronicles/what-the-captains-son-remembered.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 423,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-819",
+  "file": "docs/lords-of-cian/chronicles/the-flag-flown-without-permission.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 424,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-820",
+  "file": "docs/lords-of-cian/chronicles/the-impostors-undoing.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 425,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-821",
+  "file": "docs/lords-of-cian/chronicles/the-village-that-never-needed-saving.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 426,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-822",
+  "file": "docs/lords-of-cian/chronicles/the-market-that-rebuilt-itself.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 427,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-823",
+  "file": "docs/lords-of-cian/chronicles/the-convoy-escort-he-couldnt-outpace.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 428,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-824",
+  "file": "docs/lords-of-cian/chronicles/the-merchant-who-changed-his-trade.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 429,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-825",
+  "file": "docs/lords-of-cian/chronicles/the-meal-he-ate-as-no-one.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 430,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-826",
+  "file": "docs/lords-of-cian/chronicles/the-storm-he-waited-out-like-anyone-else.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 431,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-827",
+  "file": "docs/lords-of-cian/chronicles/what-he-taught-without-the-mask-on.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 432,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-828",
+  "file": "docs/lords-of-cian/chronicles/the-night-he-almost-didnt-go.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 433,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-829",
+  "file": "docs/lords-of-cian/chronicles/the-fight-he-fought-angry.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 434,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-830",
+  "file": "docs/lords-of-cian/chronicles/the-question-efa-gol-finally-asked.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 435,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-903",
+  "file": "docs/lords-of-cian/chronicles/the-shrine-they-built-without-asking.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 508,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-904",
+  "file": "docs/lords-of-cian/chronicles/the-raid-he-watched-from-the-rigging.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 509,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-905",
+  "file": "docs/lords-of-cian/chronicles/the-boy-he-once-cut-free.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 510,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1014",
+  "file": "docs/lords-of-cian/chronicles/the-last-fight-before-the-silence.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 619,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1015",
+  "file": "docs/lords-of-cian/chronicles/the-prisoner-who-knew-three-names.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 620,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1016",
+  "file": "docs/lords-of-cian/chronicles/the-name-chosen-to-outlast-the-others.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 621,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1017",
+  "file": "docs/lords-of-cian/chronicles/the-contract-he-wouldnt-sign.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 622,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1018",
+  "file": "docs/lords-of-cian/chronicles/the-testimony-he-never-gave-in-person.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 623,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1019",
+  "file": "docs/lords-of-cian/chronicles/the-insurance-they-tried-to-buy.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 624,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1020",
+  "file": "docs/lords-of-cian/chronicles/the-family-he-helped-her-find.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 625,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1021",
+  "file": "docs/lords-of-cian/chronicles/the-night-the-crew-took-someone-in.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 626,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1022",
+  "file": "docs/lords-of-cian/chronicles/the-last-coat-he-ever-wore.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 627,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1041",
+  "file": "docs/lords-of-cian/chronicles/the-three-cornered-fight.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 643,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1042",
+  "file": "docs/lords-of-cian/chronicles/the-ones-too-young-to-say-where-from.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 644,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1043",
+  "file": "docs/lords-of-cian/chronicles/the-blade-she-almost-didnt-sheathe.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 645,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1074",
+  "file": "docs/lords-of-cian/chronicles/the-strait-that-froze-early.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 676,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1075",
+  "file": "docs/lords-of-cian/chronicles/the-wall-he-chose-not-to-bleed-for.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 677,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1076",
+  "file": "docs/lords-of-cian/chronicles/the-charge-she-measured-twice.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 678,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1229",
+  "file": "docs/lords-of-cian/chronicles/the-tribunal-that-tried-to-name-him.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 829,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1230",
+  "file": "docs/lords-of-cian/chronicles/the-camp-fed-by-no-ones-orders.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 830,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1231",
+  "file": "docs/lords-of-cian/chronicles/what-the-ledger-said-about-the-boy-he-cut-free.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 831,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1232",
+  "file": "docs/lords-of-cian/chronicles/the-glass-reef.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 832,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1233",
+  "file": "docs/lords-of-cian/chronicles/the-rival-who-called-him-a-setback.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 833,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1234",
+  "file": "docs/lords-of-cian/chronicles/the-sibling-she-waited-thirty-years-for.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 834,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1235",
+  "file": "docs/lords-of-cian/chronicles/the-half-second-the-blade-bought.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 835,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1236",
+  "file": "docs/lords-of-cian/chronicles/what-the-collar-filtered-out.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 836,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1237",
+  "file": "docs/lords-of-cian/chronicles/the-smoke-that-spoke-first.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 837,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1238",
+  "file": "docs/lords-of-cian/chronicles/the-recapture-at-dusk.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 838,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1239",
+  "file": "docs/lords-of-cian/chronicles/the-pass-where-the-air-ran-thin.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 839,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1240",
+  "file": "docs/lords-of-cian/chronicles/the-successors-first-command-alone.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 840,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1241",
+  "file": "docs/lords-of-cian/chronicles/senas-own-student.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 841,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1242",
+  "file": "docs/lords-of-cian/chronicles/what-was-left-to-give.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 842,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1243",
+  "file": "docs/lords-of-cian/chronicles/the-pocket-he-almost-opened.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 843,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1244",
+  "file": "docs/lords-of-cian/chronicles/the-duel-he-didnt-need-onyx-for.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 844,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1245",
+  "file": "docs/lords-of-cian/chronicles/the-river-that-remembered-the-rain.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 845,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1246",
+  "file": "docs/lords-of-cian/chronicles/what-efa-gol-never-asked-twice.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 846,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1247",
+  "file": "docs/lords-of-cian/chronicles/the-forge-that-bought-its-own-freedom.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 847,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1248",
+  "file": "docs/lords-of-cian/chronicles/the-fever-that-outran-the-rescue.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 848,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1249",
+  "file": "docs/lords-of-cian/chronicles/the-watch-that-never-saw-him-coming.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 849,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1250",
+  "file": "docs/lords-of-cian/chronicles/the-ruling-that-changed-nothing.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 850,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1251",
+  "file": "docs/lords-of-cian/chronicles/the-boy-who-grew-old-waiting.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 851,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1252",
+  "file": "docs/lords-of-cian/chronicles/the-last-names-before-the-silence.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 852,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1253",
+  "file": "docs/lords-of-cian/chronicles/the-last-depot-on-the-old-charts.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 853,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1254",
+  "file": "docs/lords-of-cian/chronicles/what-the-successor-chose-to-keep.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 854,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1255",
+  "file": "docs/lords-of-cian/chronicles/the-coat-he-almost-didnt-put-back-on.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 855,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1406",
+  "file": "docs/lords-of-cian/chronicles/the-window-that-wouldnt-come-twice.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1006,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1407",
+  "file": "docs/lords-of-cian/chronicles/the-names-the-ledger-kept-track-of.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1007,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1408",
+  "file": "docs/lords-of-cian/chronicles/the-night-before-the-last-coat.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1008,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1469",
+  "file": "docs/lords-of-cian/chronicles/the-ones-who-sold-him-out.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1069,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1470",
+  "file": "docs/lords-of-cian/chronicles/the-man-who-raised-the-slavers-son.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1070,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1471",
+  "file": "docs/lords-of-cian/chronicles/the-fleet-that-wasnt-his-to-command.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1071,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1472",
+  "file": "docs/lords-of-cian/chronicles/what-pell-ostra-set-down.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1072,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1473",
+  "file": "docs/lords-of-cian/chronicles/the-crossing-with-no-water.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1073,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1474",
+  "file": "docs/lords-of-cian/chronicles/the-grandson-who-came-to-warn-him.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1074,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1475",
+  "file": "docs/lords-of-cian/chronicles/the-one-who-chose-to-leave.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1075,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1476",
+  "file": "docs/lords-of-cian/chronicles/the-reef-that-grew-back-wrong.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1076,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1477",
+  "file": "docs/lords-of-cian/chronicles/the-coat-that-went-back-to-ash-wharf.md",
+  "character_slug": "kanja",
+  "arc_label": "The Scourge",
+  "entry_number": 1077,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

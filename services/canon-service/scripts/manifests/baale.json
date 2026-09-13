@@ -1,0 +1,62 @@
+[
+ {
+  "rule_id": "MCD-346",
+  "file": "docs/lords-of-cian/chronicles/sankofa-chronicle-i-the-man-who-turned-against-himself.md",
+  "character_slug": "baale",
+  "arc_label": "Sankofa",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-360",
+  "file": "docs/lords-of-cian/chronicles/sankofa-chronicle-ii-what-his-gift-could-not-reach.md",
+  "character_slug": "baale",
+  "arc_label": "Sankofa",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-518",
+  "file": "docs/lords-of-cian/chronicles/sankofa-chronicle-iii-what-he-built-while-waiting.md",
+  "character_slug": "baale",
+  "arc_label": "Sankofa",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1023",
+  "file": "docs/lords-of-cian/chronicles/sankofa-chronicle-iv-what-the-clinic-wasnt-told.md",
+  "character_slug": "baale",
+  "arc_label": "Sankofa",
+  "entry_number": 4,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1025",
+  "file": "docs/lords-of-cian/chronicles/sankofa-chronicle-v-what-tradecraft-gave-away.md",
+  "character_slug": "baale",
+  "arc_label": "Sankofa",
+  "entry_number": 5,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1092",
+  "file": "docs/lords-of-cian/chronicles/sankofa-chronicle-vi-the-hand-that-wrote-the-first-letter.md",
+  "character_slug": "baale",
+  "arc_label": "Sankofa",
+  "entry_number": 6,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

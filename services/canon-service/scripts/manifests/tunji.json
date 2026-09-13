@@ -1,0 +1,52 @@
+[
+ {
+  "rule_id": "MCD-1523",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-iv-the-list-he-kept-before-anyone-asked.md",
+  "character_slug": "tunji",
+  "arc_label": "Kazi",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1524",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-v-what-he-read-wrong.md",
+  "character_slug": "tunji",
+  "arc_label": "Kazi",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1525",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-vi-the-names-he-was-teaching-to-read-the-floor.md",
+  "character_slug": "tunji",
+  "arc_label": "Kazi",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1526",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-vii-what-the-floor-never-let-him-set-down.md",
+  "character_slug": "tunji",
+  "arc_label": "Kazi",
+  "entry_number": 4,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1527",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-viii-the-man-who-wouldnt-say-why.md",
+  "character_slug": "tunji",
+  "arc_label": "Kazi",
+  "entry_number": 5,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

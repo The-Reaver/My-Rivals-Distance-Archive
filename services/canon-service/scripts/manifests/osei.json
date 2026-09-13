@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-352",
+  "file": "docs/lords-of-cian/chronicles/taifa-chronicle-i-bound-without-a-word.md",
+  "character_slug": "osei",
+  "arc_label": "Taifa",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-472",
+  "file": "docs/lords-of-cian/chronicles/the-oath-he-didnt-mean.md",
+  "character_slug": "osei",
+  "arc_label": "Taifa",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-524",
+  "file": "docs/lords-of-cian/chronicles/taifa-chronicle-iii-what-traveled-besides-the-alarm.md",
+  "character_slug": "osei",
+  "arc_label": "Taifa",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

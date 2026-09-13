@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-349",
+  "file": "docs/lords-of-cian/chronicles/ijoko-chronicle-i-what-laughter-couldnt-move.md",
+  "character_slug": "adwoa",
+  "arc_label": "Ijoko",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-470",
+  "file": "docs/lords-of-cian/chronicles/the-ledger-she-built-from-nothing.md",
+  "character_slug": "adwoa",
+  "arc_label": "Ijoko",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-521",
+  "file": "docs/lords-of-cian/chronicles/ijoko-chronicle-iii-the-criticism-she-couldnt-dismiss.md",
+  "character_slug": "adwoa",
+  "arc_label": "Ijoko",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

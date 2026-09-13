@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-341",
+  "file": "docs/lords-of-cian/chronicles/boriken-chronicle-i-the-fire-that-found-no-center.md",
+  "character_slug": "guani",
+  "arc_label": "Borik\u00e9n",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-364",
+  "file": "docs/lords-of-cian/chronicles/boriken-chronicle-ii-what-memory-could-carry-back.md",
+  "character_slug": "guani",
+  "arc_label": "Borik\u00e9n",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-512",
+  "file": "docs/lords-of-cian/chronicles/boriken-chronicle-iii-the-men-who-claimed-his-name.md",
+  "character_slug": "guani",
+  "arc_label": "Borik\u00e9n",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

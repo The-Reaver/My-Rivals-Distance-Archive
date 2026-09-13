@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-354",
+  "file": "docs/lords-of-cian/chronicles/nyansa-chronicle-i-the-word-that-stuck.md",
+  "character_slug": "adisa",
+  "arc_label": "Nyansa",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-474",
+  "file": "docs/lords-of-cian/chronicles/the-cost-of-being-corrected.md",
+  "character_slug": "adisa",
+  "arc_label": "Nyansa",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-526",
+  "file": "docs/lords-of-cian/chronicles/nyansa-chronicle-iii-the-contradiction-he-named-in-himself.md",
+  "character_slug": "adisa",
+  "arc_label": "Nyansa",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-335",
+  "file": "docs/lords-of-cian/chronicles/umoja-chronicle-i-the-man-who-mapped-the-door.md",
+  "character_slug": "kofi",
+  "arc_label": "Umoja",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-465",
+  "file": "docs/lords-of-cian/chronicles/the-fire-that-spread-too-thin.md",
+  "character_slug": "kofi",
+  "arc_label": "Umoja",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-515",
+  "file": "docs/lords-of-cian/chronicles/umoja-chronicle-iii-the-fire-that-crossed-the-city.md",
+  "character_slug": "kofi",
+  "arc_label": "Umoja",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

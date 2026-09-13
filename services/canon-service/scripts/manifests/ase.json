@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-342",
+  "file": "docs/lords-of-cian/chronicles/ide-chronicle-i-what-could-not-be-buried.md",
+  "character_slug": "ase",
+  "arc_label": "Ide",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-466",
+  "file": "docs/lords-of-cian/chronicles/the-record-they-tried-to-rewrite.md",
+  "character_slug": "ase",
+  "arc_label": "Ide",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-513",
+  "file": "docs/lords-of-cian/chronicles/ide-chronicle-iii-the-name-she-almost-left-out.md",
+  "character_slug": "ase",
+  "arc_label": "Ide",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

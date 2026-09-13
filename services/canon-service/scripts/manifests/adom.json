@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-353",
+  "file": "docs/lords-of-cian/chronicles/hekalu-chronicle-i-whoever-sits-down.md",
+  "character_slug": "adom",
+  "arc_label": "Hekalu",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-473",
+  "file": "docs/lords-of-cian/chronicles/the-meal-that-bound-nothing.md",
+  "character_slug": "adom",
+  "arc_label": "Hekalu",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-525",
+  "file": "docs/lords-of-cian/chronicles/hekalu-chronicle-iii-the-table-that-needed-setting-again.md",
+  "character_slug": "adom",
+  "arc_label": "Hekalu",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

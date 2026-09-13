@@ -1,0 +1,962 @@
+[
+ {
+  "rule_id": "MCD-431",
+  "file": "docs/lords-of-cian/chronicles/the-wounded-he-chose-to-carry.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 67,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-432",
+  "file": "docs/lords-of-cian/chronicles/the-full-weight-of-the-trinity.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 68,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-433",
+  "file": "docs/lords-of-cian/chronicles/what-efa-gol-saw-first.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 69,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-476",
+  "file": "docs/lords-of-cian/chronicles/the-fight-he-couldnt-walk-away-from.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 100,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-477",
+  "file": "docs/lords-of-cian/chronicles/what-the-delay-cost.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 101,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-478",
+  "file": "docs/lords-of-cian/chronicles/the-child-who-wasnt-afraid.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 102,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-528",
+  "file": "docs/lords-of-cian/chronicles/the-boy-who-wanted-to-be-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 133,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-529",
+  "file": "docs/lords-of-cian/chronicles/the-siege-that-took-nine-days.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 134,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-530",
+  "file": "docs/lords-of-cian/chronicles/what-danne-sok-never-told-anyone.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 135,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-681",
+  "file": "docs/lords-of-cian/chronicles/the-rumor-he-never-corrected.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 286,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-682",
+  "file": "docs/lords-of-cian/chronicles/what-the-bad-map-cost.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 287,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-683",
+  "file": "docs/lords-of-cian/chronicles/the-archivist-who-couldnt-make-him-match.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 288,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-684",
+  "file": "docs/lords-of-cian/chronicles/the-column-he-didnt-lead.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 289,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-685",
+  "file": "docs/lords-of-cian/chronicles/six-hours-in-a-cage.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 290,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-686",
+  "file": "docs/lords-of-cian/chronicles/what-the-cook-remembered.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 291,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-687",
+  "file": "docs/lords-of-cian/chronicles/the-pass-that-wanted-him-dead-first.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 292,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-688",
+  "file": "docs/lords-of-cian/chronicles/the-man-who-didnt-flinch.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 293,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-689",
+  "file": "docs/lords-of-cian/chronicles/the-soldier-who-almost-didnt-come-back.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 294,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-690",
+  "file": "docs/lords-of-cian/chronicles/what-the-black-ledger-remembers.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 295,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-691",
+  "file": "docs/lords-of-cian/chronicles/the-village-he-didnt-burn.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 296,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-692",
+  "file": "docs/lords-of-cian/chronicles/the-story-told-for-coin.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 297,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-693",
+  "file": "docs/lords-of-cian/chronicles/what-he-didnt-say-out-loud.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 298,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-694",
+  "file": "docs/lords-of-cian/chronicles/the-twelve-he-couldnt-wait-for.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 299,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-695",
+  "file": "docs/lords-of-cian/chronicles/the-numbers-bane-left-behind.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 300,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-696",
+  "file": "docs/lords-of-cian/chronicles/what-the-soulbound-edge-bound.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 301,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-697",
+  "file": "docs/lords-of-cian/chronicles/the-water-that-wouldnt-carry-the-current.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 302,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-698",
+  "file": "docs/lords-of-cian/chronicles/the-commander-who-wanted-the-name-for-himself.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 303,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-699",
+  "file": "docs/lords-of-cian/chronicles/what-he-taught-before-they-ever-fought.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 304,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-700",
+  "file": "docs/lords-of-cian/chronicles/the-grain-that-never-reached-the-garrison.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 305,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-701",
+  "file": "docs/lords-of-cian/chronicles/the-medic-who-finally-got-to-treat-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 306,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-702",
+  "file": "docs/lords-of-cian/chronicles/the-ground-he-chose-to-give-up.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 307,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-703",
+  "file": "docs/lords-of-cian/chronicles/the-fight-that-went-straight-up.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 308,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-704",
+  "file": "docs/lords-of-cian/chronicles/the-dispute-they-brought-to-him-instead.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 309,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-705",
+  "file": "docs/lords-of-cian/chronicles/the-officer-who-chose-to-talk.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 310,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-706",
+  "file": "docs/lords-of-cian/chronicles/the-promise-he-couldnt-keep.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 311,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-707",
+  "file": "docs/lords-of-cian/chronicles/what-callum-breck-handed-him-instead-of-words.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 312,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-708",
+  "file": "docs/lords-of-cian/chronicles/the-threat-file-that-finally-closed.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 313,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-709",
+  "file": "docs/lords-of-cian/chronicles/the-last-night-the-ravine-remembered.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 314,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-710",
+  "file": "docs/lords-of-cian/chronicles/what-the-name-cost-him-to-set-down.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 315,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-909",
+  "file": "docs/lords-of-cian/chronicles/the-line-he-drew-inside-his-own-column.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 514,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-910",
+  "file": "docs/lords-of-cian/chronicles/the-surrender-that-wasnt-one.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 515,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-911",
+  "file": "docs/lords-of-cian/chronicles/the-fire-he-chose-over-the-ambush.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 516,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-933",
+  "file": "docs/lords-of-cian/chronicles/the-silence-they-built-to-blind-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 538,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-934",
+  "file": "docs/lords-of-cian/chronicles/the-name-they-wanted-to-borrow.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 539,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-935",
+  "file": "docs/lords-of-cian/chronicles/the-night-they-came-for-the-blade.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 540,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-936",
+  "file": "docs/lords-of-cian/chronicles/the-crossing-they-almost-didnt-make.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 541,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-937",
+  "file": "docs/lords-of-cian/chronicles/what-stays-after-the-first-one.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 542,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-938",
+  "file": "docs/lords-of-cian/chronicles/what-he-couldnt-be-in-two-places-for.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 543,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-939",
+  "file": "docs/lords-of-cian/chronicles/the-council-that-asked-him-to-speak-plainly.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 544,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-940",
+  "file": "docs/lords-of-cian/chronicles/the-one-who-didnt-need-him-anymore.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 545,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-941",
+  "file": "docs/lords-of-cian/chronicles/the-argument-halst-won.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 546,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1026",
+  "file": "docs/lords-of-cian/chronicles/the-bridge-he-refused-to-blow.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 628,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1027",
+  "file": "docs/lords-of-cian/chronicles/the-officer-who-wasnt-lying.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 629,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1028",
+  "file": "docs/lords-of-cian/chronicles/what-the-council-decided.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 630,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1059",
+  "file": "docs/lords-of-cian/chronicles/the-night-his-judgment-slipped.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 661,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1060",
+  "file": "docs/lords-of-cian/chronicles/the-twelve-miles-that-never-stopped-moving.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 662,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1061",
+  "file": "docs/lords-of-cian/chronicles/the-weight-maret-vos-chose-to-carry.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 663,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1094",
+  "file": "docs/lords-of-cian/chronicles/what-the-shadows-wouldnt-hide.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 694,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1095",
+  "file": "docs/lords-of-cian/chronicles/the-general-who-wouldnt-sit-with-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 695,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1096",
+  "file": "docs/lords-of-cian/chronicles/what-the-crossfire-left-behind.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 696,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1097",
+  "file": "docs/lords-of-cian/chronicles/the-charge-that-fired-too-soon.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 697,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1098",
+  "file": "docs/lords-of-cian/chronicles/the-story-they-wanted-to-be-true.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 698,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1099",
+  "file": "docs/lords-of-cian/chronicles/the-lieutenant-corren-halst-chose.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 699,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1100",
+  "file": "docs/lords-of-cian/chronicles/what-the-river-carried-between-them.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 700,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1101",
+  "file": "docs/lords-of-cian/chronicles/the-fever-that-moved-faster-than-the-column.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 701,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1102",
+  "file": "docs/lords-of-cian/chronicles/the-garrison-he-let-walk.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 702,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1103",
+  "file": "docs/lords-of-cian/chronicles/the-dry-crossing.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 703,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1104",
+  "file": "docs/lords-of-cian/chronicles/the-colonel-who-came-back.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 704,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1105",
+  "file": "docs/lords-of-cian/chronicles/what-efa-gol-taught-the-new-ones.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 705,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1106",
+  "file": "docs/lords-of-cian/chronicles/the-second-time-the-colonel-came.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 706,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1107",
+  "file": "docs/lords-of-cian/chronicles/the-granary-they-burned-to-prove-a-point.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 707,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1108",
+  "file": "docs/lords-of-cian/chronicles/the-song-they-sang-without-knowing-whose-it-was.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 708,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1109",
+  "file": "docs/lords-of-cian/chronicles/the-verification-that-took-too-long-the-right-way.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 709,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1110",
+  "file": "docs/lords-of-cian/chronicles/the-two-columns-that-never-met.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 710,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1111",
+  "file": "docs/lords-of-cian/chronicles/what-the-silence-after-meant.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 711,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1112",
+  "file": "docs/lords-of-cian/chronicles/the-trial-they-held-without-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 712,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1113",
+  "file": "docs/lords-of-cian/chronicles/the-weight-of-the-ones-who-didnt-run.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 713,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1114",
+  "file": "docs/lords-of-cian/chronicles/the-ones-danne-sok-couldnt-save.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 714,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1115",
+  "file": "docs/lords-of-cian/chronicles/what-the-colonel-understood-too-late.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 715,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1116",
+  "file": "docs/lords-of-cian/chronicles/the-ones-who-stayed-behind-to-lie.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 716,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1117",
+  "file": "docs/lords-of-cian/chronicles/what-garren-hask-refused-to-write-down.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 717,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1118",
+  "file": "docs/lords-of-cian/chronicles/the-season-bane-didnt-fight.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 718,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1119",
+  "file": "docs/lords-of-cian/chronicles/the-names-on-one-mans-list.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 719,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1120",
+  "file": "docs/lords-of-cian/chronicles/what-the-name-still-meant.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 720,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1391",
+  "file": "docs/lords-of-cian/chronicles/the-white-that-took-the-map-away.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 991,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1392",
+  "file": "docs/lords-of-cian/chronicles/the-guide-who-sold-them-an-inch-at-a-time.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 992,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1393",
+  "file": "docs/lords-of-cian/chronicles/the-nights-toran-commanded-alone.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 993,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1424",
+  "file": "docs/lords-of-cian/chronicles/the-tide-that-wrote-the-deadline.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1024,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1425",
+  "file": "docs/lords-of-cian/chronicles/the-duel-that-would-cost-nothing-but-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1025,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1426",
+  "file": "docs/lords-of-cian/chronicles/what-the-enemys-own-children-were-owed.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1026,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1427",
+  "file": "docs/lords-of-cian/chronicles/the-hostage-at-the-gate.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1027,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1428",
+  "file": "docs/lords-of-cian/chronicles/the-impersonators-price.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1028,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1429",
+  "file": "docs/lords-of-cian/chronicles/the-wedding-at-the-waystation.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1029,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1430",
+  "file": "docs/lords-of-cian/chronicles/the-one-who-walked-the-other-way.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1030,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1431",
+  "file": "docs/lords-of-cian/chronicles/the-trade-neither-side-trusted.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1031,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1432",
+  "file": "docs/lords-of-cian/chronicles/the-story-that-outran-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Bane",
+  "entry_number": 1032,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

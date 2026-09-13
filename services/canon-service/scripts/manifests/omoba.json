@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-344",
+  "file": "docs/lords-of-cian/chronicles/jibaro-chronicle-i-what-the-walls-refused.md",
+  "character_slug": "omoba",
+  "arc_label": "Jibaro",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-468",
+  "file": "docs/lords-of-cian/chronicles/the-building-that-wouldnt-choose-a-side.md",
+  "character_slug": "omoba",
+  "arc_label": "Jibaro",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-516",
+  "file": "docs/lords-of-cian/chronicles/jibaro-chronicle-iii-the-week-five-doors-refused.md",
+  "character_slug": "omoba",
+  "arc_label": "Jibaro",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

@@ -1,0 +1,1022 @@
+[
+ {
+  "rule_id": "MCD-389",
+  "file": "docs/lords-of-cian/chronicles/the-second-burning.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 28,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-390",
+  "file": "docs/lords-of-cian/chronicles/what-the-forge-refused-to-return.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 29,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-391",
+  "file": "docs/lords-of-cian/chronicles/an-apprenticeship-that-outlasted-the-war.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 30,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-422",
+  "file": "docs/lords-of-cian/chronicles/what-cant-be-burned.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 58,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-423",
+  "file": "docs/lords-of-cian/chronicles/the-night-they-came-for-the-anvil.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 59,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-424",
+  "file": "docs/lords-of-cian/chronicles/the-smith-who-resented-the-crown.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 60,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-455",
+  "file": "docs/lords-of-cian/chronicles/the-convoy-that-wouldnt-stop-moving.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 91,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-456",
+  "file": "docs/lords-of-cian/chronicles/what-the-embargo-couldnt-starve.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 92,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-457",
+  "file": "docs/lords-of-cian/chronicles/the-settlement-that-kept-the-forge-lit.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 93,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-500",
+  "file": "docs/lords-of-cian/chronicles/what-didnt-come-back-this-time.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 124,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-501",
+  "file": "docs/lords-of-cian/chronicles/the-saboteur-among-the-apprentices.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 125,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-502",
+  "file": "docs/lords-of-cian/chronicles/the-smith-they-said-couldnt-be-one.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 126,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-552",
+  "file": "docs/lords-of-cian/chronicles/the-night-all-five-forges-burned-at-once.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 157,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-553",
+  "file": "docs/lords-of-cian/chronicles/the-smith-who-built-their-weapons.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 158,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-554",
+  "file": "docs/lords-of-cian/chronicles/what-the-old-smith-saw-in-the-ashes.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 159,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-861",
+  "file": "docs/lords-of-cian/chronicles/the-crew-that-rebuilt-without-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 466,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-862",
+  "file": "docs/lords-of-cian/chronicles/what-the-floodwater-couldnt-take.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 467,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-863",
+  "file": "docs/lords-of-cian/chronicles/the-engineer-who-came-to-disprove-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 468,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-864",
+  "file": "docs/lords-of-cian/chronicles/the-rebuild-that-broke-someone.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 469,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-865",
+  "file": "docs/lords-of-cian/chronicles/what-they-chose-to-save-first.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 470,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-866",
+  "file": "docs/lords-of-cian/chronicles/the-mural-on-the-sea-wall.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 471,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-867",
+  "file": "docs/lords-of-cian/chronicles/the-magistrate-who-spent-his-name.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 472,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-868",
+  "file": "docs/lords-of-cian/chronicles/the-pass-that-wouldnt-close.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 473,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-869",
+  "file": "docs/lords-of-cian/chronicles/the-soldier-who-stayed.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 474,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-870",
+  "file": "docs/lords-of-cian/chronicles/the-fear-that-outlasted-the-flame.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 475,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-871",
+  "file": "docs/lords-of-cian/chronicles/the-foundry-they-turned-around.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 476,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-872",
+  "file": "docs/lords-of-cian/chronicles/the-apprentice-who-became-the-guildmaster.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 477,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-873",
+  "file": "docs/lords-of-cian/chronicles/the-night-he-almost-didnt-make-the-sixth.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 478,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-874",
+  "file": "docs/lords-of-cian/chronicles/what-held-the-bridge-together.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 479,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-875",
+  "file": "docs/lords-of-cian/chronicles/two-apprentices-two-roads.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 480,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-876",
+  "file": "docs/lords-of-cian/chronicles/the-pride-that-wouldnt-take-help.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 481,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-877",
+  "file": "docs/lords-of-cian/chronicles/what-the-quarry-wall-held-back.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 482,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-878",
+  "file": "docs/lords-of-cian/chronicles/the-alloy-she-wouldnt-share.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 483,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-879",
+  "file": "docs/lords-of-cian/chronicles/the-diplomat-who-came-to-negotiate-a-surrender.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 484,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-880",
+  "file": "docs/lords-of-cian/chronicles/the-night-the-tide-turned-the-battle.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 485,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-881",
+  "file": "docs/lords-of-cian/chronicles/the-ballad-that-outgrew-the-truth.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 486,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-882",
+  "file": "docs/lords-of-cian/chronicles/the-vote-to-turn-back.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 487,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-883",
+  "file": "docs/lords-of-cian/chronicles/the-site-that-burned-twice.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 488,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-884",
+  "file": "docs/lords-of-cian/chronicles/the-boy-who-refused-the-forge.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 489,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-885",
+  "file": "docs/lords-of-cian/chronicles/the-grudge-that-outlived-the-war.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 490,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-886",
+  "file": "docs/lords-of-cian/chronicles/the-forge-at-the-edge-of-the-map.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 491,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-887",
+  "file": "docs/lords-of-cian/chronicles/what-the-senior-smith-passed-down.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 492,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-888",
+  "file": "docs/lords-of-cian/chronicles/the-final-burning.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 493,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-889",
+  "file": "docs/lords-of-cian/chronicles/what-eighteen-months-built.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 494,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-890",
+  "file": "docs/lords-of-cian/chronicles/the-anvils-last-anchorage.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 495,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-921",
+  "file": "docs/lords-of-cian/chronicles/the-smith-who-came-to-judge-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 526,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-922",
+  "file": "docs/lords-of-cian/chronicles/what-the-enemy-learned-to-rebuild.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 527,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-923",
+  "file": "docs/lords-of-cian/chronicles/the-fire-that-asked-for-no-enemy.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 528,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-969",
+  "file": "docs/lords-of-cian/chronicles/what-the-forge-carved-in-memory.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 574,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-970",
+  "file": "docs/lords-of-cian/chronicles/the-settlement-that-was-never-there.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 575,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-971",
+  "file": "docs/lords-of-cian/chronicles/the-ledger-that-wasnt-his.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 576,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-972",
+  "file": "docs/lords-of-cian/chronicles/the-caravan-that-didnt-know-his-name.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 577,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-973",
+  "file": "docs/lords-of-cian/chronicles/what-the-river-barge-couldnt-outrun.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 578,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-974",
+  "file": "docs/lords-of-cian/chronicles/the-burn-he-didnt-let-them-see.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 579,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-975",
+  "file": "docs/lords-of-cian/chronicles/the-boundary-stone-no-one-could-move.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 580,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-976",
+  "file": "docs/lords-of-cian/chronicles/those-who-came-with-nothing-but-the-road.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 581,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-977",
+  "file": "docs/lords-of-cian/chronicles/the-festival-they-built-around-the-forge.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 582,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1050",
+  "file": "docs/lords-of-cian/chronicles/what-the-slag-left-behind.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 652,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1051",
+  "file": "docs/lords-of-cian/chronicles/what-the-trinity-couldnt-absorb.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 653,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1052",
+  "file": "docs/lords-of-cian/chronicles/the-standard-they-wrote-into-the-books.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 654,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1083",
+  "file": "docs/lords-of-cian/chronicles/the-collapse-they-meant-to-cause.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 685,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1084",
+  "file": "docs/lords-of-cian/chronicles/the-standard-they-learned-to-fake.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 686,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1085",
+  "file": "docs/lords-of-cian/chronicles/what-left-the-forge-and-kept-going.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 687,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1310",
+  "file": "docs/lords-of-cian/chronicles/what-the-ballad-brought-to-his-door.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 910,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1311",
+  "file": "docs/lords-of-cian/chronicles/the-frost-that-didnt-wait-for-spring.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 911,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1312",
+  "file": "docs/lords-of-cian/chronicles/what-the-senior-smith-set-down.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 912,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1313",
+  "file": "docs/lords-of-cian/chronicles/the-apprentice-no-one-vouched-for.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 913,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1314",
+  "file": "docs/lords-of-cian/chronicles/the-storm-that-nearly-took-the-anvil.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 914,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1315",
+  "file": "docs/lords-of-cian/chronicles/what-hands-that-couldnt-lift-a-hammer-still-built.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 915,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1316",
+  "file": "docs/lords-of-cian/chronicles/the-mark-no-one-could-steal.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 916,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1317",
+  "file": "docs/lords-of-cian/chronicles/what-the-old-dam-remembered.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 917,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1318",
+  "file": "docs/lords-of-cian/chronicles/the-guild-that-forgot-why-it-opened.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 918,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1319",
+  "file": "docs/lords-of-cian/chronicles/the-hearing-they-couldnt-hold-without-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 919,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1320",
+  "file": "docs/lords-of-cian/chronicles/what-the-bonded-forge-gave-up.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 920,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1321",
+  "file": "docs/lords-of-cian/chronicles/the-school-that-outgrew-the-anvil.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 921,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1322",
+  "file": "docs/lords-of-cian/chronicles/what-the-coat-couldnt-shed.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 922,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1323",
+  "file": "docs/lords-of-cian/chronicles/what-came-down-from-the-ridge.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 923,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1324",
+  "file": "docs/lords-of-cian/chronicles/the-price-they-asked-for-the-boy.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 924,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1325",
+  "file": "docs/lords-of-cian/chronicles/the-garrison-commanders-second-lesson.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 925,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1326",
+  "file": "docs/lords-of-cian/chronicles/what-the-canyon-carried-sound-of.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 926,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1327",
+  "file": "docs/lords-of-cian/chronicles/the-record-they-got-right.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 927,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1328",
+  "file": "docs/lords-of-cian/chronicles/the-weeks-the-method-stood-alone.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 928,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1329",
+  "file": "docs/lords-of-cian/chronicles/what-he-came-back-to-finish.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 929,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1330",
+  "file": "docs/lords-of-cian/chronicles/the-hands-that-taught-the-hands.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 930,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1331",
+  "file": "docs/lords-of-cian/chronicles/the-priest-who-wouldnt-bless-the-forge.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 931,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1332",
+  "file": "docs/lords-of-cian/chronicles/what-the-pilgrims-never-saw-coming.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 932,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1333",
+  "file": "docs/lords-of-cian/chronicles/what-they-agreed-to-owe-each-other.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 933,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1334",
+  "file": "docs/lords-of-cian/chronicles/what-the-anvil-needed-from-itself.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 934,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1335",
+  "file": "docs/lords-of-cian/chronicles/everything-theyd-learned-at-once.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 935,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1336",
+  "file": "docs/lords-of-cian/chronicles/the-standard-that-forgot-his-name.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 936,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1415",
+  "file": "docs/lords-of-cian/chronicles/the-winter-the-coal-sheds-went-empty.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1015,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1416",
+  "file": "docs/lords-of-cian/chronicles/the-millrace-they-tried-to-choke.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1016,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1417",
+  "file": "docs/lords-of-cian/chronicles/what-efa-gol-came-to-see.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1017,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1496",
+  "file": "docs/lords-of-cian/chronicles/the-coin-that-wouldnt-hold-its-weight.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1096,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1497",
+  "file": "docs/lords-of-cian/chronicles/what-the-marsh-wouldnt-ground.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1097,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1498",
+  "file": "docs/lords-of-cian/chronicles/the-river-two-villages-wouldnt-share.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1098,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1499",
+  "file": "docs/lords-of-cian/chronicles/the-cell-they-thought-would-hold-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1099,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1500",
+  "file": "docs/lords-of-cian/chronicles/what-the-smoke-said.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1100,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1501",
+  "file": "docs/lords-of-cian/chronicles/what-they-built-from-what-they-saw.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1101,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1502",
+  "file": "docs/lords-of-cian/chronicles/the-ledger-keepers-slowing-hand.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1102,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1503",
+  "file": "docs/lords-of-cian/chronicles/the-wave-that-gave-no-warning.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1103,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1504",
+  "file": "docs/lords-of-cian/chronicles/the-village-he-never-reached.md",
+  "character_slug": "kanja",
+  "arc_label": "Lord of Embers",
+  "entry_number": 1104,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

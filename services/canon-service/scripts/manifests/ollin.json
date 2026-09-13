@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-347",
+  "file": "docs/lords-of-cian/chronicles/aztlan-chronicle-i-one-body-many-hands.md",
+  "character_slug": "ollin",
+  "arc_label": "Aztl\u00e1n",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-359",
+  "file": "docs/lords-of-cian/chronicles/aztlan-chronicle-ii-the-half-he-never-carried.md",
+  "character_slug": "ollin",
+  "arc_label": "Aztl\u00e1n",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-519",
+  "file": "docs/lords-of-cian/chronicles/aztlan-chronicle-iii-the-first-time-he-actually-listened.md",
+  "character_slug": "ollin",
+  "arc_label": "Aztl\u00e1n",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

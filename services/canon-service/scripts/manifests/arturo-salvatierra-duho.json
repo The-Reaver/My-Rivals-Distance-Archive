@@ -1,0 +1,52 @@
+[
+ {
+  "rule_id": "MCD-337",
+  "file": "docs/lords-of-cian/chronicles/xaragua-chronicle-ii-the-man-at-the-head-of-the-table.md",
+  "character_slug": "arturo-salvatierra-duho",
+  "arc_label": "Xaragua",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-361",
+  "file": "docs/lords-of-cian/chronicles/xaragua-chronicle-iii-where-the-table-began.md",
+  "character_slug": "arturo-salvatierra-duho",
+  "arc_label": "Xaragua",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-362",
+  "file": "docs/lords-of-cian/chronicles/xaragua-chronicle-iv-the-one-he-chose-to-teach.md",
+  "character_slug": "arturo-salvatierra-duho",
+  "arc_label": "Xaragua",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1024",
+  "file": "docs/lords-of-cian/chronicles/xaragua-chronicle-v-the-night-he-was-let-into-the-room.md",
+  "character_slug": "arturo-salvatierra-duho",
+  "arc_label": "Xaragua",
+  "entry_number": 4,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1093",
+  "file": "docs/lords-of-cian/chronicles/xaragua-chronicle-vi-what-he-came-without-being-asked.md",
+  "character_slug": "arturo-salvatierra-duho",
+  "arc_label": "Xaragua",
+  "entry_number": 5,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

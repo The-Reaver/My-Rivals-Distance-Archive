@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-350",
+  "file": "docs/lords-of-cian/chronicles/orin-chronicle-i-what-cant-be-sold.md",
+  "character_slug": "onilu",
+  "arc_label": "Orin",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-471",
+  "file": "docs/lords-of-cian/chronicles/what-the-ark-actually-carries.md",
+  "character_slug": "onilu",
+  "arc_label": "Orin",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-522",
+  "file": "docs/lords-of-cian/chronicles/orin-chronicle-iii-what-the-ark-wouldnt-lend-itself-to.md",
+  "character_slug": "onilu",
+  "arc_label": "Orin",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

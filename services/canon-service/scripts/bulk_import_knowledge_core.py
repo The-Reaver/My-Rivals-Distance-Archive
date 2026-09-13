@@ -288,7 +288,7 @@ def import_item(item: dict, source_root: Path, character_ids: dict[str, str]) ->
     statements: list[str] = []
 
     rule_id = item["rule_id"]
-    manifest_title = item["title"]
+    manifest_title = item.get("title")  # None => trust the file's own leading "# Title" line as-is
     file_path = source_root / item["file"]
     character_slug = item["character_slug"]
     arc_label = item.get("arc_label")
@@ -307,7 +307,7 @@ def import_item(item: dict, source_root: Path, character_ids: dict[str, str]) ->
     character_id = character_ids[character_slug]
 
     parsed = parse_chronicle_file(file_path)
-    if parsed.title != manifest_title:
+    if manifest_title is not None and parsed.title != manifest_title:
         raise ValueError(
             f"{rule_id}: manifest title {manifest_title!r} != file's own title {parsed.title!r} "
             f"({file_path})"
@@ -388,6 +388,14 @@ def main() -> None:
         default=SCRIPT_DIR / "character_ids.json",
         help="Path to the character_slug -> live characters.id mapping (default: scripts/character_ids.json)",
     )
+    parser.add_argument(
+        "--chunk-size",
+        type=int,
+        default=0,
+        help="Split output into multiple <out-stem>-partNNN<out-suffix> files of this many Chronicle "
+        "Entries each (each independently wrapped in its own begin/commit), instead of one big file. "
+        "Useful when applying via a tool with a payload-size limit. 0 (default) = single file.",
+    )
     args = parser.parse_args()
 
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
@@ -403,15 +411,31 @@ def main() -> None:
             )
         seen_entry_numbers[key].add(item["entry_number"])
 
-    all_statements: list[str] = ["begin;", ""]
-    for item in manifest:
-        all_statements.append(f"-- {item['rule_id']}: {item['title']}")
-        all_statements.extend(import_item(item, args.source_root, character_ids))
-        all_statements.append("")
-    all_statements.append("commit;")
+    def render(items: list[dict]) -> str:
+        statements: list[str] = ["begin;", ""]
+        for item in items:
+            statements.append(f"-- {item['rule_id']}")
+            statements.extend(import_item(item, args.source_root, character_ids))
+            statements.append("")
+        statements.append("commit;")
+        return "\n".join(statements) + "\n"
 
-    args.out.write_text("\n".join(all_statements) + "\n", encoding="utf-8")
-    print(f"Wrote {len(manifest)} Chronicle Entries ({args.out}). Review, then apply against the live DB.")
+    chunk_size = args.chunk_size or len(manifest)
+    chunks = [manifest[i : i + chunk_size] for i in range(0, len(manifest), chunk_size)]
+
+    if len(chunks) == 1:
+        args.out.write_text(render(chunks[0]), encoding="utf-8")
+        print(f"Wrote {len(manifest)} Chronicle Entries ({args.out}). Review, then apply against the live DB.")
+    else:
+        width = len(str(len(chunks)))
+        for i, chunk in enumerate(chunks, start=1):
+            out_path = args.out.with_name(f"{args.out.stem}-part{i:0{width}d}{args.out.suffix}")
+            out_path.write_text(render(chunk), encoding="utf-8")
+        print(
+            f"Wrote {len(manifest)} Chronicle Entries across {len(chunks)} files "
+            f"({args.out.with_name(args.out.stem + '-part*' + args.out.suffix)}). "
+            "Apply each part in order, verifying no errors before the next."
+        )
 
 
 if __name__ == "__main__":

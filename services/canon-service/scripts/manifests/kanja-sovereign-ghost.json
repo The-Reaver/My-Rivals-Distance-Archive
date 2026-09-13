@@ -1,0 +1,1022 @@
+[
+ {
+  "rule_id": "MCD-377",
+  "file": "docs/lords-of-cian/chronicles/a-ship-that-was-already-gone.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 16,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-378",
+  "file": "docs/lords-of-cian/chronicles/the-chains-that-remembered-the-anchor.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 17,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-379",
+  "file": "docs/lords-of-cian/chronicles/what-the-lantern-watch-prayed-for.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 18,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-410",
+  "file": "docs/lords-of-cian/chronicles/the-wreck-they-named-for-him.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 46,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-411",
+  "file": "docs/lords-of-cian/chronicles/what-the-hull-told-dol-maren.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 47,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-412",
+  "file": "docs/lords-of-cian/chronicles/the-girl-who-waited-for-black-sails.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 48,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-443",
+  "file": "docs/lords-of-cian/chronicles/the-task-force-built-to-hunt-a-ghost.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 79,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-444",
+  "file": "docs/lords-of-cian/chronicles/the-sails-that-werent-his.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 80,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-445",
+  "file": "docs/lords-of-cian/chronicles/what-the-quartermaster-kept-account-of.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 81,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-488",
+  "file": "docs/lords-of-cian/chronicles/the-ship-he-couldnt-reach-in-time.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 112,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-489",
+  "file": "docs/lords-of-cian/chronicles/the-manifest-written-in-chains.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 113,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-490",
+  "file": "docs/lords-of-cian/chronicles/the-flag-from-a-foreign-sea.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 114,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-540",
+  "file": "docs/lords-of-cian/chronicles/the-captains-who-chose-a-side.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 145,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-541",
+  "file": "docs/lords-of-cian/chronicles/the-conscripts-who-never-wanted-the-fight.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 146,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-542",
+  "file": "docs/lords-of-cian/chronicles/what-callum-breck-remembered-of-the-water.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 147,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-771",
+  "file": "docs/lords-of-cian/chronicles/the-storm-they-didnt-make.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 376,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-772",
+  "file": "docs/lords-of-cian/chronicles/what-the-reef-wanted-to-take.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 377,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-773",
+  "file": "docs/lords-of-cian/chronicles/ten-ships-that-were-one.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 378,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-774",
+  "file": "docs/lords-of-cian/chronicles/the-captain-who-didnt-believe-in-ghosts.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 379,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-775",
+  "file": "docs/lords-of-cian/chronicles/air-enough-for-six.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 380,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-776",
+  "file": "docs/lords-of-cian/chronicles/what-pell-ostra-cleared.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 381,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-777",
+  "file": "docs/lords-of-cian/chronicles/terms-without-blood.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 382,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-778",
+  "file": "docs/lords-of-cian/chronicles/the-wind-he-read-better.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 383,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-779",
+  "file": "docs/lords-of-cian/chronicles/what-danne-sok-charted.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 384,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-780",
+  "file": "docs/lords-of-cian/chronicles/the-toll-he-refused-to-take.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 385,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-781",
+  "file": "docs/lords-of-cian/chronicles/the-night-the-coast-held.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 386,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-782",
+  "file": "docs/lords-of-cian/chronicles/the-chart-the-enemy-couldnt-steal.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 387,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-783",
+  "file": "docs/lords-of-cian/chronicles/what-the-rumor-cost-them.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 388,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-784",
+  "file": "docs/lords-of-cian/chronicles/the-strait-that-ate-the-light.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 389,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-785",
+  "file": "docs/lords-of-cian/chronicles/where-the-captives-went.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 390,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-786",
+  "file": "docs/lords-of-cian/chronicles/the-ships-that-borrowed-his-name.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 391,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-787",
+  "file": "docs/lords-of-cian/chronicles/the-convoy-caught-between-two-flags.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 392,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-788",
+  "file": "docs/lords-of-cian/chronicles/the-third-ship-garren-hask-named.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 393,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-789",
+  "file": "docs/lords-of-cian/chronicles/the-officer-who-read-every-report.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 394,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-790",
+  "file": "docs/lords-of-cian/chronicles/what-fell-when-the-tower-did.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 395,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-791",
+  "file": "docs/lords-of-cian/chronicles/the-decoys-efa-gol-never-used.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 396,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-792",
+  "file": "docs/lords-of-cian/chronicles/the-night-he-let-them-see-everything.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 397,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-793",
+  "file": "docs/lords-of-cian/chronicles/the-thing-the-directorate-built-to-hunt-them.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 398,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-794",
+  "file": "docs/lords-of-cian/chronicles/the-hull-dol-maren-wasnt-finished-with.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 399,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-795",
+  "file": "docs/lords-of-cian/chronicles/the-officer-the-ghost-cost-his-commission.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 400,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-796",
+  "file": "docs/lords-of-cian/chronicles/the-passenger-nobody-could-know-they-carried.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 401,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-797",
+  "file": "docs/lords-of-cian/chronicles/what-they-did-before-every-sailing.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 402,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-798",
+  "file": "docs/lords-of-cian/chronicles/what-the-scholar-wasnt-allowed-to-prove.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 403,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-799",
+  "file": "docs/lords-of-cian/chronicles/the-duel-off-the-sovereign-coast.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 404,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-800",
+  "file": "docs/lords-of-cian/chronicles/the-gathering-at-the-ghost-fleets-anchorage.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 405,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-912",
+  "file": "docs/lords-of-cian/chronicles/the-mercy-that-cost-them.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 517,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-913",
+  "file": "docs/lords-of-cian/chronicles/what-the-crew-argued-over.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 518,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-914",
+  "file": "docs/lords-of-cian/chronicles/the-flag-that-wasnt-theirs.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 519,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-951",
+  "file": "docs/lords-of-cian/chronicles/the-debt-the-sea-called-in.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 556,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-952",
+  "file": "docs/lords-of-cian/chronicles/the-marshal-who-took-it-personally.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 557,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-953",
+  "file": "docs/lords-of-cian/chronicles/what-went-without-so-others-could-have.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 558,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-954",
+  "file": "docs/lords-of-cian/chronicles/the-trap-built-from-mercy-itself.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 559,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-955",
+  "file": "docs/lords-of-cian/chronicles/the-hand-that-chose-to-leave.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 560,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-956",
+  "file": "docs/lords-of-cian/chronicles/the-line-they-ran-through-fire.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 561,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-957",
+  "file": "docs/lords-of-cian/chronicles/what-the-marshal-couldnt-take-back.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 562,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-958",
+  "file": "docs/lords-of-cian/chronicles/the-last-watch-of-an-old-hand.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 563,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-959",
+  "file": "docs/lords-of-cian/chronicles/what-the-sea-kept-between-them.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 564,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1038",
+  "file": "docs/lords-of-cian/chronicles/the-ship-they-meant-to-sink.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 640,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1039",
+  "file": "docs/lords-of-cian/chronicles/what-dol-maren-passed-down.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 641,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1040",
+  "file": "docs/lords-of-cian/chronicles/the-pact-signed-in-salt-water.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 642,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1071",
+  "file": "docs/lords-of-cian/chronicles/the-night-the-water-burned.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 673,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1072",
+  "file": "docs/lords-of-cian/chronicles/the-debt-kept-inside-the-crew.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 674,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1073",
+  "file": "docs/lords-of-cian/chronicles/the-rites-they-gave-the-drowned.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 675,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1202",
+  "file": "docs/lords-of-cian/chronicles/the-fever-that-didnt-care-about-flags.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 802,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1203",
+  "file": "docs/lords-of-cian/chronicles/the-man-who-sold-their-position.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 803,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1204",
+  "file": "docs/lords-of-cian/chronicles/what-the-charts-couldnt-show.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 804,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1205",
+  "file": "docs/lords-of-cian/chronicles/the-bounty-he-wouldnt-claim.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 805,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1206",
+  "file": "docs/lords-of-cian/chronicles/the-wind-that-wouldnt-come.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 806,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1207",
+  "file": "docs/lords-of-cian/chronicles/the-vow-efa-gol-almost-broke.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 807,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1208",
+  "file": "docs/lords-of-cian/chronicles/the-harbor-that-starved-anyway.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 808,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1209",
+  "file": "docs/lords-of-cian/chronicles/the-reformed-mans-trial.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 809,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1210",
+  "file": "docs/lords-of-cian/chronicles/what-the-smallest-boat-carried.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 810,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1211",
+  "file": "docs/lords-of-cian/chronicles/the-squall-that-broke-the-line.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 811,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1212",
+  "file": "docs/lords-of-cian/chronicles/the-ledgers-twin.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 812,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1213",
+  "file": "docs/lords-of-cian/chronicles/what-they-buried-at-sea.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 813,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1214",
+  "file": "docs/lords-of-cian/chronicles/the-signal-they-almost-answered.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 814,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1215",
+  "file": "docs/lords-of-cian/chronicles/the-captain-who-gave-up-his-ship.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 815,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1216",
+  "file": "docs/lords-of-cian/chronicles/the-widows-question.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 816,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1217",
+  "file": "docs/lords-of-cian/chronicles/the-ones-who-stayed-behind.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 817,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1218",
+  "file": "docs/lords-of-cian/chronicles/the-storm-chart-dol-maren-refused-to-sell.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 818,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1219",
+  "file": "docs/lords-of-cian/chronicles/the-night-the-ledger-ran-out-of-room.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 819,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1220",
+  "file": "docs/lords-of-cian/chronicles/the-depth-they-werent-meant-to-reach.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 820,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1221",
+  "file": "docs/lords-of-cian/chronicles/the-peace-that-cost-a-throne.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 821,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1222",
+  "file": "docs/lords-of-cian/chronicles/what-corren-halst-wouldnt-report.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 822,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1223",
+  "file": "docs/lords-of-cian/chronicles/the-fleet-that-wasnt-ready.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 823,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1224",
+  "file": "docs/lords-of-cian/chronicles/the-debt-paid-in-silence.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 824,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1225",
+  "file": "docs/lords-of-cian/chronicles/the-reunion-at-ghost-harbor.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 825,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1226",
+  "file": "docs/lords-of-cian/chronicles/the-last-ship-they-let-go.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 826,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1227",
+  "file": "docs/lords-of-cian/chronicles/what-the-sea-never-gave-back.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 827,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1228",
+  "file": "docs/lords-of-cian/chronicles/the-ghost-fleets-own-reckoning.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 828,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1403",
+  "file": "docs/lords-of-cian/chronicles/the-channel-the-ice-sealed-shut.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1003,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1404",
+  "file": "docs/lords-of-cian/chronicles/the-voice-that-ended-it-without-a-blow.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1004,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1405",
+  "file": "docs/lords-of-cian/chronicles/the-war-that-wore-their-name.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1005,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1460",
+  "file": "docs/lords-of-cian/chronicles/the-champion-sent-to-kill-a-ghost.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1060,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1461",
+  "file": "docs/lords-of-cian/chronicles/the-compass-that-pointed-wrong.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1061,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1462",
+  "file": "docs/lords-of-cian/chronicles/what-the-seafloor-told-the-lens.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1062,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1463",
+  "file": "docs/lords-of-cian/chronicles/the-wave-that-outran-the-charts.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1063,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1464",
+  "file": "docs/lords-of-cian/chronicles/sworn-before-the-salt-table.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1064,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1465",
+  "file": "docs/lords-of-cian/chronicles/the-reef-where-the-whales-turned-back.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1065,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1466",
+  "file": "docs/lords-of-cian/chronicles/the-hand-that-asked-to-stay.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1066,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1467",
+  "file": "docs/lords-of-cian/chronicles/the-storm-they-called-a-bluff.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1067,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-1468",
+  "file": "docs/lords-of-cian/chronicles/what-the-directorate-wrote-about-the-duel.md",
+  "character_slug": "kanja",
+  "arc_label": "Sovereign Ghost of the Great Sea",
+  "entry_number": 1068,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

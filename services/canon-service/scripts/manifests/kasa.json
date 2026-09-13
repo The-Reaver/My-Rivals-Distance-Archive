@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-343",
+  "file": "docs/lords-of-cian/chronicles/kwan-chronicle-i-the-weight-of-being-asked.md",
+  "character_slug": "kasa",
+  "arc_label": "Kwan",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-467",
+  "file": "docs/lords-of-cian/chronicles/the-man-who-had-nothing-left-to-give.md",
+  "character_slug": "kasa",
+  "arc_label": "Kwan",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-514",
+  "file": "docs/lords-of-cian/chronicles/kwan-chronicle-iii-the-landlord-who-changed-his-own-mind.md",
+  "character_slug": "kasa",
+  "arc_label": "Kwan",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

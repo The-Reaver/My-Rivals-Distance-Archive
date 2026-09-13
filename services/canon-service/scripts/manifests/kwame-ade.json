@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-339",
+  "file": "docs/lords-of-cian/chronicles/areito-chronicle-i-what-doesnt-land.md",
+  "character_slug": "kwame-ade",
+  "arc_label": "Are\u00edto",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-356",
+  "file": "docs/lords-of-cian/chronicles/areito-chronicle-ii-the-one-who-stood-where-he-stood.md",
+  "character_slug": "kwame-ade",
+  "arc_label": "Are\u00edto",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-509",
+  "file": "docs/lords-of-cian/chronicles/areito-chronicle-iii-the-two-houses-he-brought-to-one-table.md",
+  "character_slug": "kwame-ade",
+  "arc_label": "Are\u00edto",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

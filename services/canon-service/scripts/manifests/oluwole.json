@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-348",
+  "file": "docs/lords-of-cian/chronicles/atunbi-chronicle-i-what-takes-root.md",
+  "character_slug": "oluwole",
+  "arc_label": "Atunbi",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-469",
+  "file": "docs/lords-of-cian/chronicles/what-patience-actually-grows.md",
+  "character_slug": "oluwole",
+  "arc_label": "Atunbi",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-520",
+  "file": "docs/lords-of-cian/chronicles/atunbi-chronicle-iii-the-ones-who-wanted-it-faster.md",
+  "character_slug": "oluwole",
+  "arc_label": "Atunbi",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

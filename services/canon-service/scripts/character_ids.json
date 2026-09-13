@@ -1,4 +1,27 @@
 {
   "_comment": "Maps a character_slug (as used in import manifests) to that character's live public.characters.id in the lords-of-cian-archive Supabase project. Only characters that already exist in the DB belong here -- creating a new character row is a separate, non-mechanical step (it needs hand-written dossier_cover/hook_line prose) and isn't part of bulk_import_knowledge_core.py's scope. Update this file by hand right after a new characters row is created live.",
-  "kanja": "94dcb46f-a2d7-4772-b746-4e1a0024a084"
+  "kanja": "94dcb46f-a2d7-4772-b746-4e1a0024a084",
+  "ogoun-xarey": "8a321a13-4f7b-4915-9b5e-d39a3dac2722",
+  "arturo-salvatierra-duho": "575db07d-56d9-4778-acbc-ee2c6d80c800",
+  "kwame-ade": "fc1b96a8-5539-45db-97a7-094af461ff06",
+  "yalokona": "29f52950-96bc-4717-952e-4ab0539400d5",
+  "eri-kotoko": "82c2723d-826e-4173-af3f-8ec6f6d29a42",
+  "guani": "b585591b-dbf2-44f3-8e62-c39db3cbd9d6",
+  "ase": "f55f7782-d22d-4bcb-acd5-b28b02f2371b",
+  "kasa": "646aa718-1e7c-406f-a475-a2d8ef7bea37",
+  "kofi": "b47acc97-1769-477e-aa29-312c908ece03",
+  "omoba": "b351a8ff-4643-4bd7-8515-b830fd813660",
+  "ofin": "269d438c-6f6b-4678-9ede-c9e5824a3eb7",
+  "baale": "2681c92e-d567-499f-9e80-73e823ecd1ad",
+  "ollin": "a5cb3160-3379-4be8-bee9-8b473fe8ed42",
+  "oluwole": "6c233fd0-2452-417f-b683-5eaaf2ff8251",
+  "adwoa": "1c879959-e16e-4196-9fe1-222318a13642",
+  "onilu": "73c5f70a-bc6c-4e41-9b9f-32b8a4faafb7",
+  "irin": "caf6a25d-32a5-4077-851a-27fa5ba8d646",
+  "tunji": "ae7eabb5-2bb3-4477-99ad-83a20a1e0202",
+  "femi": "65380872-493f-49ad-8777-c9acde5b9b40",
+  "osei": "e982980b-337d-4bd9-996a-ccc198c0297a",
+  "adom": "b809ba01-490f-4d06-878b-b1074b415c5c",
+  "adisa": "9e8da529-316a-49da-a0ce-83cb711cd1cc",
+  "owusu": "b3110c7f-ab2b-47a4-a8b0-05bf3b556544"
 }

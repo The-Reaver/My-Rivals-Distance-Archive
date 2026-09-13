@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-351",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-i-the-line-that-heard-him.md",
+  "character_slug": "irin",
+  "arc_label": "Kazi",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-363",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-ii-the-names-beside-his.md",
+  "character_slug": "irin",
+  "arc_label": "Kazi",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-523",
+  "file": "docs/lords-of-cian/chronicles/kazi-chronicle-iii-the-line-that-wasnt-a-line.md",
+  "character_slug": "irin",
+  "arc_label": "Kazi",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

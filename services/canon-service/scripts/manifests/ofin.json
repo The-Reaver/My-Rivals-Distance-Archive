@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-345",
+  "file": "docs/lords-of-cian/chronicles/uhuru-chronicle-i-the-patience-that-cost-him.md",
+  "character_slug": "ofin",
+  "arc_label": "Uhuru",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-358",
+  "file": "docs/lords-of-cian/chronicles/uhuru-chronicle-ii-what-he-finished-first.md",
+  "character_slug": "ofin",
+  "arc_label": "Uhuru",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-517",
+  "file": "docs/lords-of-cian/chronicles/uhuru-chronicle-iii-what-the-seat-couldnt-give-the-next-man.md",
+  "character_slug": "ofin",
+  "arc_label": "Uhuru",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "rule_id": "MCD-340",
+  "file": "docs/lords-of-cian/chronicles/guanin-chronicle-i-the-debt-comes-due.md",
+  "character_slug": "eri-kotoko",
+  "arc_label": "Guan\u00edn",
+  "entry_number": 1,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-357",
+  "file": "docs/lords-of-cian/chronicles/guanin-chronicle-ii-what-he-chose-to-print.md",
+  "character_slug": "eri-kotoko",
+  "arc_label": "Guan\u00edn",
+  "entry_number": 2,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ },
+ {
+  "rule_id": "MCD-511",
+  "file": "docs/lords-of-cian/chronicles/guanin-chronicle-iii-the-blow-he-decided-not-to-bank.md",
+  "character_slug": "eri-kotoko",
+  "arc_label": "Guan\u00edn",
+  "entry_number": 3,
+  "book_placement": "pre_book",
+  "batch_id": "Archive bulk import, 2026-09-13",
+  "clearance_level": 1
+ }
+]
