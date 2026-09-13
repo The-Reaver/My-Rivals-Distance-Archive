@@ -37,6 +37,23 @@ own Postgres service container and runs these automatically. Added
 `services/canon-service/.env.example` documenting `DATABASE_URL` (service_role, direct
 Postgres — distinct from `SUPABASE_URL`'s JWKS-only use) and `TEST_DATABASE_URL`.
 
+**2026-09-13, same-day follow-up #2 — admin UI over the Knowledge Core.** The routes above
+had no human-usable front end. Added `GET /knowledge-core/entries` (optional `?status=`) and
+`GET /knowledge-core/entries/{id}` to canon-service (admin-gated, backed by two new read-only
+`PostgresKnowledgeCoreRepository` methods), plus `/admin/knowledge-core` (+ `/[id]`) in
+apps/web. Architecturally load-bearing point: `CANON_SERVICE_URL` is a Railway
+**private-network** address — the browser can never reach it directly. So `lib/canonService.ts`
+(server-only: Server Components / Route Handlers / Server Actions) is the *only* place
+apps/web is allowed to call canon-service from, forwarding the signed-in admin's own Supabase
+access token; canon-service re-verifies it and `is_admin` itself, this helper carries no
+privilege of its own. Mutations (`TransitionForm`/`ExtractionForm`, both Client Components)
+therefore go through same-origin Server Actions (`actions.ts`), never straight from the
+browser to canon-service. `ExtractionForm` is a general JSON-textarea tool covering all three
+target types rather than three bespoke forms — honest about the underlying API; a guided
+per-type UI is a reasonable future upgrade once real usage exists. 48 tests total now (was 41
+after the previous follow-up), all passing against a real local Postgres instance before this
+landed.
+
 **This session's work (non-blocking scaffolding, run in parallel while the real Brain Trust
 review's device-bridge session was being set up separately):**
 - Patched a critical Next.js RCE (`next` 16.3.2 → 16.3.5); `npm audit` clean.
@@ -80,14 +97,16 @@ review's device-bridge session was being set up separately):**
   file already on a deprecated path.
 
 **Verified working (cumulative):**
-- `services/canon-service`: `pytest` — 34/34 pass. 22 DB-free (`ratification.py`'s state
-  machine, 11 tests; `extraction.py`'s commit logic, 11 tests) plus 12 Postgres integration
-  tests (8 repository-level, 4 route-level) that skip themselves without `TEST_DATABASE_URL`
-  set. `services/canon-service/.env.example` documents both `DATABASE_URL` (service_role,
-  direct Postgres) and `TEST_DATABASE_URL`.
+- `services/canon-service`: `pytest` — 48/48 pass. 22 DB-free (`ratification.py`'s state
+  machine, 11 tests; `extraction.py`'s commit logic, 11 tests) plus 26 Postgres integration
+  tests (repository-level and route-level, covering transitions, extractions, and the
+  list/detail read endpoints) that skip themselves without `TEST_DATABASE_URL` set.
+  `services/canon-service/.env.example` documents both `DATABASE_URL` (service_role, direct
+  Postgres) and `TEST_DATABASE_URL`.
 - `apps/web`: `npm run typecheck` clean, `npm run build` succeeds. Static routes: `/`,
-  `/admin/login`. Dynamic (RLS-gated, server-rendered): `/characters`, `/archive`,
-  `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`), `/auth/callback`.
+  `/admin/login`. Dynamic (RLS-gated, server-rendered, or canon-service-backed):
+  `/characters`, `/archive`, `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`,
+  `/[id]`), `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`.
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
@@ -111,6 +130,16 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
                                  tokens (no Tailwind typography plugin dependency).
   components/ChronicleEditor.tsx  Shared create/edit form + live preview, used by both
                                  /admin/chronicles/new and /admin/chronicles/[id].
+  app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
+                                 /knowledge-core/entries* routes (never queries
+                                 knowledge_core directly -- it's invisible to anon/
+                                 authenticated by design). actions.ts holds the Server
+                                 Actions TransitionForm/ExtractionForm submit to.
+  lib/canonService.ts           The only place apps/web is allowed to call canon-service
+                                 from -- CANON_SERVICE_URL is a Railway private-network
+                                 address the browser can never reach directly, so this is
+                                 server-only (Server Components/Route Handlers/Server
+                                 Actions), forwarding the caller's own Supabase access token.
 services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-heavy or
                             canon-graph-shaped: AI-Parse, bulk ingestion, the Knowledge
                             Core ratification engine, extraction commits, demand-score
@@ -123,9 +152,9 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/db.py                    Sync psycopg_pool connection pool (lenient if DATABASE_URL unset).
   app/repositories.py          Real Postgres-backed implementations of both modules' Protocols.
   app/admin.py                 require_admin: layers reader_profiles.is_admin onto require_user.
-  app/routes_knowledge_core.py  POST /knowledge-core/entries/{id}/transition,
-                                 POST /knowledge-core/extractions -- both admin-gated, each
-                                 one Postgres transaction.
+  app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
+                                 POST .../{id}/transition, POST /knowledge-core/extractions --
+                                 all admin-gated; the two POSTs each one Postgres transaction.
 supabase/migrations/       6 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
@@ -234,6 +263,32 @@ to `true` — nothing in this app can grant that flag to itself.
 beyond `/health`; no service-role key lives in this repo or its `.env.example` anywhere —
 per its own module docstring, `app/auth.py` verifies tokens against Supabase's public JWKS,
 so canon-service never needs to hold a shared secret.
+
+## Four product decisions queued for the real Brain Trust, 2026-09-13
+
+Asked directly, Abad routed all four of the following to the real Brain Trust investigation
+process (the same device-bridge session as the SEO/GEO charter review below) rather than
+have them decided ad hoc from this session or accept the "recommended" option offered
+alongside each. His instruction: genuinely independent investigation by Augustin and every
+other Brain Trust agent, plus AJ and the four Breakers, each with no visibility into what the
+others are doing, reconvening into one meta-build recommendation per decision that specifies
+the workflow, the specification for the specific intended user, what the UI should do for
+that user, and how the features/functions serve them. None of these four are decided yet —
+do not implement any of them from a guess; wait for the Brain Trust's actual output.
+
+1. **Reader Demand Score formula (P1-1).** `demand_scores` and its public-read RLS policy
+   exist; nothing computes a real number into it. Inputs available: `chronicle_requests`,
+   `reads` (`completion_pct`/`completed`), `shares`, `referrals` (credited only). The
+   strategy doc's own framing: a 150-and-rising character should outrank a 200-and-flat one.
+2. **The Level 2 clearance-unlock rule.** Two conflicting readings across the source docs:
+   complete 2 of 3 actions (read/share/request), vs. an OR-based gate (read 3 fully, OR
+   share once, OR request 2). Nothing writes to `reader_profiles.clearance_level` past its
+   default yet — this blocks the reader loop from doing anything real.
+3. **`quiz_questions` (P3-1):** build the in-world "correspondence" diagnostic now, defer
+   past launch, or drop the table/feature entirely.
+4. **Bulk Character Codex ingestion (P1-6):** how to handle the Anthropic API key
+   canon-service needs for AI-Parse, and whether to build the pipeline now (dormant, no key
+   set) or hold the task entirely until a key and approach exist.
 
 ## Standing blocker, unaffected by anything above
 
