@@ -23,8 +23,30 @@ jobs:
       - run: npm run build
 
   canon-service:
-    name: canon-service (pytest)
+    name: canon-service (pytest, incl. Postgres integration tests)
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: postgres
+      # test_repositories_integration.py / test_routes_knowledge_core.py
+      # skip themselves entirely if this isn't set (see their own module
+      # docstrings) -- setting it here is what turns them on in CI while a
+      # local `pytest` with no Postgres running stays DB-free by default.
+      TEST_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
     defaults:
       run:
         working-directory: services/canon-service
@@ -36,6 +58,17 @@ jobs:
           cache: pip
           cache-dependency-path: services/canon-service/requirements-dev.txt
       - run: pip install -r requirements-dev.txt
+      # Same auth/role stub + migration sequence as the migrations job
+      # below, so the integration tests have a real, fully-migrated schema
+      # to run against -- just against this job's own Postgres service
+      # rather than a separate one.
+      - name: Apply local auth/role stub and migrations
+        working-directory: .
+        run: |
+          psql -v ON_ERROR_STOP=1 -f supabase/testing/local_auth_stub.sql
+          for f in supabase/migrations/*.sql; do
+            psql -v ON_ERROR_STOP=1 -f "$f"
+          done
       - run: pytest -q
 
   migrations:
