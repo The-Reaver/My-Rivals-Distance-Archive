@@ -1,9 +1,15 @@
-"""Admin-only Knowledge Core routes: ratification transitions and
-extraction commits. Both wrap their pure logic module (app.ratification /
-app.extraction -- already unit-tested in isolation) in one Postgres
-transaction via psycopg_pool's connection() context manager: it commits on
-a clean exit and rolls back on any exception, so a validation failure
-(RatificationError / ExtractionError) leaves nothing partially written.
+"""Admin-only Knowledge Core routes.
+
+GET /entries and GET /entries/{id} are plain reads backing the admin
+browser UI in apps/web (list by status, one entry's full detail plus its
+outgoing references).
+
+POST /entries/{id}/transition and POST /extractions wrap their pure logic
+module (app.ratification / app.extraction -- already unit-tested in
+isolation) in one Postgres transaction via psycopg_pool's connection()
+context manager: it commits on a clean exit and rolls back on any
+exception, so a validation failure (RatificationError / ExtractionError)
+leaves nothing partially written.
 
 These are the "real admin/ratification routes" main.py's own module
 docstring said would "land in a later pass" -- this is that pass.
@@ -27,6 +33,63 @@ from app.ratification import EntryStatus, RatificationError, transition
 from app.repositories import PostgresExtractionRepository, PostgresKnowledgeCoreRepository
 
 router = APIRouter(prefix="/knowledge-core", tags=["knowledge-core"])
+
+
+class EntrySummaryResponse(BaseModel):
+    id: str
+    entry_type: str
+    title: str
+    status: EntryStatus
+    book_placement: str
+    created_at: str
+
+
+@router.get("/entries", response_model=list[EntrySummaryResponse])
+def list_entries(
+    status: EntryStatus | None = None,
+    _admin: AuthenticatedUser = Depends(require_admin),
+) -> list[EntrySummaryResponse]:
+    pool = get_pool()
+    with pool.connection() as conn:
+        repo = PostgresKnowledgeCoreRepository(conn)
+        entries = repo.list_entries(status)
+
+    return [EntrySummaryResponse(**entry) for entry in entries]
+
+
+class ReferenceResponse(BaseModel):
+    to_entry_id: str
+    relationship_type: str
+
+
+class EntryDetailResponse(BaseModel):
+    id: str
+    entry_type: str
+    title: str
+    body: dict
+    status: EntryStatus
+    book_placement: str
+    character_ids: list[str]
+    created_at: str
+    updated_at: str
+    ratified_at: str | None
+    outgoing_references: list[ReferenceResponse]
+
+
+@router.get("/entries/{entry_id}", response_model=EntryDetailResponse)
+def get_entry(
+    entry_id: str,
+    _admin: AuthenticatedUser = Depends(require_admin),
+) -> EntryDetailResponse:
+    pool = get_pool()
+    with pool.connection() as conn:
+        repo = PostgresKnowledgeCoreRepository(conn)
+        entry = repo.get_entry_full(entry_id)
+
+    if entry is None:
+        raise HTTPException(status_code=404, detail="Entry not found")
+
+    return EntryDetailResponse(**entry)
 
 
 class TransitionRequest(BaseModel):

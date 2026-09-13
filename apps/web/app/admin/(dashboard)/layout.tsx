@@ -43,6 +43,9 @@ export default async function AdminDashboardLayout({
           <Link href="/admin/chronicles" className="hover:text-accent-gold">
             Chronicles
           </Link>
+          <Link href="/admin/knowledge-core" className="hover:text-accent-gold">
+            Knowledge Core
+          </Link>
         </nav>
         <p className="font-mono text-caption text-accent-steel">{profile.email}</p>
       </header>

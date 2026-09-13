@@ -16,6 +16,14 @@ export default function AdminDashboardPage() {
             Chronicle entries
           </Link>
         </li>
+        <li>
+          <Link
+            href="/admin/knowledge-core"
+            className="font-body text-body text-accent-gold underline underline-offset-2"
+          >
+            Knowledge Core
+          </Link>
+        </li>
       </ul>
     </div>
   );

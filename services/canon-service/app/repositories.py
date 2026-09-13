@@ -72,6 +72,67 @@ class PostgresKnowledgeCoreRepository:
                 (new_status.value, entry_id),
             )
 
+    def list_entries(self, status: EntryStatus | None = None) -> list[dict]:
+        """Read-only convenience for the admin Knowledge Core browser --
+        not part of ratification.py's Protocol (that contract only needs
+        single-entry lookups), just colocated since it's the same table and
+        connection pattern."""
+        if status is not None:
+            rows = self._conn.execute(
+                "select id, entry_type, title, status, book_placement, created_at "
+                "from knowledge_core.kc_entries where status = %s order by created_at desc",
+                (status.value,),
+            ).fetchall()
+        else:
+            rows = self._conn.execute(
+                "select id, entry_type, title, status, book_placement, created_at "
+                "from knowledge_core.kc_entries order by created_at desc"
+            ).fetchall()
+
+        return [
+            {
+                "id": str(row[0]),
+                "entry_type": row[1],
+                "title": row[2],
+                "status": row[3],
+                "book_placement": row[4],
+                "created_at": row[5].isoformat(),
+            }
+            for row in rows
+        ]
+
+    def get_entry_full(self, entry_id: str) -> dict | None:
+        """Read-only convenience for the admin entry-detail view -- same
+        caveat as list_entries() above."""
+        row = self._conn.execute(
+            "select id, entry_type, title, body, status, book_placement, character_ids, "
+            "created_at, updated_at, ratified_at "
+            "from knowledge_core.kc_entries where id = %s",
+            (entry_id,),
+        ).fetchone()
+        if row is None:
+            return None
+
+        entry_id_val = str(row[0])
+        references = self.get_outgoing_references(entry_id_val)
+
+        return {
+            "id": entry_id_val,
+            "entry_type": row[1],
+            "title": row[2],
+            "body": row[3],
+            "status": row[4],
+            "book_placement": row[5],
+            "character_ids": [str(c) for c in row[6]],
+            "created_at": row[7].isoformat(),
+            "updated_at": row[8].isoformat(),
+            "ratified_at": row[9].isoformat() if row[9] else None,
+            "outgoing_references": [
+                {"to_entry_id": r.to_entry_id, "relationship_type": r.relationship_type}
+                for r in references
+            ],
+        }
+
 
 # ---------------------------------------------------------------------------
 # Extraction

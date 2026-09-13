@@ -124,3 +124,47 @@ def test_knowledge_core_routes_require_admin(monkeypatch):
         )
 
     assert response.status_code == 401
+
+
+def test_list_entries_route_filters_by_status_query_param(app_with_admin_override):
+    ratified_id = insert_kc_entry(status="ratified")
+    insert_kc_entry(status="draft")
+
+    with TestClient(app_with_admin_override) as client:
+        response = client.get("/knowledge-core/entries?status=ratified")
+
+    assert response.status_code == 200
+    body = response.json()
+    ids = {e["id"] for e in body}
+    assert ratified_id in ids
+    assert all(e["status"] == "ratified" for e in body)
+
+
+def test_get_entry_route_returns_detail_with_references(app_with_admin_override):
+    target_id = insert_kc_entry(status="ratified")
+    entry_id = insert_kc_entry(status="under_review")
+    with psycopg.connect(TEST_DATABASE_URL, autocommit=True) as conn:
+        conn.execute(
+            "insert into knowledge_core.kc_references (from_entry_id, to_entry_id, relationship_type) "
+            "values (%s, %s, 'depends_on')",
+            (entry_id, target_id),
+        )
+
+    with TestClient(app_with_admin_override) as client:
+        response = client.get(f"/knowledge-core/entries/{entry_id}")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["id"] == entry_id
+    assert body["status"] == "under_review"
+    assert len(body["outgoing_references"]) == 1
+    assert body["outgoing_references"][0]["to_entry_id"] == target_id
+
+
+def test_get_entry_route_returns_404_for_missing_entry(app_with_admin_override):
+    import uuid
+
+    with TestClient(app_with_admin_override) as client:
+        response = client.get(f"/knowledge-core/entries/{uuid.uuid4()}")
+
+    assert response.status_code == 404

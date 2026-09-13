@@ -133,6 +133,50 @@ class TestPostgresKnowledgeCoreRepository:
         # was never reached, so status should still read under_review.
         assert repo.get_entry(entry_id).status == EntryStatus.UNDER_REVIEW
 
+    def test_list_entries_filters_by_status(self, conn):
+        draft_id = insert_kc_entry(conn, status="draft")
+        ratified_id = insert_kc_entry(conn, status="ratified")
+        repo = PostgresKnowledgeCoreRepository(conn)
+
+        ratified_only = repo.list_entries(EntryStatus.RATIFIED)
+        ratified_ids = {e["id"] for e in ratified_only}
+
+        assert ratified_id in ratified_ids
+        assert draft_id not in ratified_ids
+
+    def test_list_entries_with_no_filter_returns_everything(self, conn):
+        entry_id = insert_kc_entry(conn, status="locked")
+        repo = PostgresKnowledgeCoreRepository(conn)
+
+        all_entries = repo.list_entries()
+
+        assert any(e["id"] == entry_id for e in all_entries)
+
+    def test_get_entry_full_returns_none_for_missing_id(self, conn):
+        repo = PostgresKnowledgeCoreRepository(conn)
+        assert repo.get_entry_full(str(uuid.uuid4())) is None
+
+    def test_get_entry_full_includes_references(self, conn):
+        target_id = insert_kc_entry(conn)
+        entry_id = insert_kc_entry(conn, status="under_review")
+        conn.execute(
+            "insert into knowledge_core.kc_references (from_entry_id, to_entry_id, relationship_type) "
+            "values (%s, %s, 'mentions')",
+            (entry_id, target_id),
+        )
+        repo = PostgresKnowledgeCoreRepository(conn)
+
+        detail = repo.get_entry_full(entry_id)
+
+        assert detail is not None
+        assert detail["id"] == entry_id
+        assert detail["status"] == "under_review"
+        assert isinstance(detail["body"], dict)
+        assert detail["ratified_at"] is None
+        assert len(detail["outgoing_references"]) == 1
+        assert detail["outgoing_references"][0]["to_entry_id"] == target_id
+        assert detail["outgoing_references"][0]["relationship_type"] == "mentions"
+
 
 class TestPostgresExtractionRepository:
     def test_commit_extraction_writes_archive_document_and_extraction_record(self, conn):
