@@ -578,16 +578,16 @@ beyond `/health`; no service-role key lives in this repo or its `.env.example` a
 per its own module docstring, `app/auth.py` verifies tokens against Supabase's public JWKS,
 so canon-service never needs to hold a shared secret.
 
-## Four product decisions queued for the real Brain Trust, 2026-09-13
+## Six decisions queued for the real Brain Trust, 2026-09-13
 
-Asked directly, Abad routed all four of the following to the real Brain Trust investigation
+Asked directly, Abad routed all six of the following to the real Brain Trust investigation
 process (the same device-bridge session as the SEO/GEO charter review below) rather than
 have them decided ad hoc from this session or accept the "recommended" option offered
 alongside each. His instruction: genuinely independent investigation by Augustin and every
 other Brain Trust agent, plus AJ and the four Breakers, each with no visibility into what the
 others are doing, reconvening into one meta-build recommendation per decision that specifies
 the workflow, the specification for the specific intended user, what the UI should do for
-that user, and how the features/functions serve them. None of these four are decided yet —
+that user, and how the features/functions serve them. None of these six are decided yet —
 do not implement any of them from a guess; wait for the Brain Trust's actual output.
 
 1. **Reader Demand Score formula (P1-1).** `demand_scores` and its public-read RLS policy
@@ -603,6 +603,14 @@ do not implement any of them from a guess; wait for the Brain Trust's actual out
 4. **Bulk Character Codex ingestion (P1-6):** how to handle the Anthropic API key
    canon-service needs for AI-Parse, and whether to build the pipeline now (dormant, no key
    set) or hold the task entirely until a key and approach exist.
+5. **Email provider for the Request Fulfillment Loop (Idea 2's other half).** Notifications
+   land in-app already (`notifications` table + `/notifications`, follow-up #5). Recommended
+   Resend, not decided — asked directly and routed to the Brain Trust rather than accepted.
+6. **When to unpause the `lords-of-cian-archive` Supabase project.** Confirmed via the
+   Supabase API (not assumed) that the project is currently `INACTIVE`. Blocks real email
+   delivery, a live Database Webhook/Edge Function deploy, and P1-7 production deployment
+   generally — all three wait on this same decision. Asked directly whether to unpause now;
+   routed to the Brain Trust instead of decided ad hoc.
 
 ## Standing blocker, unaffected by anything above
 
