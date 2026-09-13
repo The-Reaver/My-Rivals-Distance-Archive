@@ -42,3 +42,21 @@ begin
   end if;
 end
 $$;
+
+-- A real Supabase project auto-grants anon/authenticated broad table-level
+-- privileges on the public schema at provisioning time (RLS is meant to be
+-- the sole enforcement layer, per this schema's own comments -- table
+-- grants are deliberately coarse yes/no, RLS policies do the actual row
+-- filtering). Nothing in supabase/migrations/ replicates that grant
+-- because it isn't a migration's job; a plain local Postgres server has no
+-- equivalent of it at all. Without this, every prior local verification
+-- pass in this project ran as the postgres superuser, which bypasses RLS
+-- entirely (superusers aren't subject to row security by default) -- so
+-- RLS policies were confirmed to exist and compile, but never actually
+-- exercised as a genuinely restricted role. This closes that gap: apply
+-- this before the public-schema migrations run (0001+) so their
+-- create table statements pick up the default privileges below.
+grant usage on schema public to anon, authenticated;
+grant all on all tables in schema public to anon, authenticated;
+alter default privileges in schema public
+  grant all on tables to anon, authenticated;

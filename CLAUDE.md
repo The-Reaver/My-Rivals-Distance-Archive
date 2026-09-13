@@ -14,7 +14,7 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Ten commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Eleven commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
@@ -71,6 +71,46 @@ existed — this closes both, plus signup itself:
   `/characters/[slug]/chronicles/[entryNumber]`, `/signup`, `/welcome` all present in the build
   output); `services/canon-service`'s DB-free test subset still 22 passed/19 skipped
   (unaffected — no canon-service changes this pass).
+
+**2026-09-13, same-day follow-up #4 — reading progress tracking, plus a real gap in this
+project's own RLS-testing rigor closed along the way.** `reads` (from `0001`) had no writer.
+Added `components/ReadingProgressTracker.tsx`, an invisible client component mounted on the
+chronicle reader page: tracks scroll depth against the whole document (this route renders
+nothing else of any height, so no ref needs to cross the server/client boundary), debounces
+writes 1500ms after scroll settles, and flushes immediately on tab-hide. Writes are monotonic
+against *both* this session's own progress and whatever was already saved from a prior visit
+(fetched once on mount) — a quick re-open that scrolls less than an earlier full read can
+never regress `completion_pct` or un-flip `completed`. `completed` sets at ≥95% scrolled.
+Signed-out visitors are never tracked (no `reader_id` to write against). Scoped deliberately
+narrow: this is the progress-tracking half of the earlier-deferred "reads/shares
+instrumentation" item — `shares` has no UI action to hook into yet and stays out of scope
+here, a separate later item.
+
+Verifying this surfaced a real, previously-unexamined gap: `supabase/testing/local_auth_stub.sql`
+stubs `auth.uid()`/`auth.role()` and creates the `anon`/`authenticated`/`service_role` roles,
+but never granted them anything on the `public` schema — a real Supabase project does this
+automatically at provisioning (RLS is meant to be the *sole* enforcement layer; table grants
+are deliberately coarse yes/no). Without it, every prior local RLS verification in this
+project ran as the `postgres` superuser, which bypasses row security entirely — so RLS
+policies were confirmed to exist and compile, but never actually exercised as a genuinely
+restricted role. Fixed by adding the missing `grant`/`alter default privileges` to the stub
+(matching Supabase's real default posture) and then, for the first time, running a real
+`SET ROLE authenticated` + `request.jwt.uid` verification pass against local Postgres: a
+reader's own upsert to `reads` (insert, then the update-on-conflict path) succeeds; the exact
+same insert attempted with a different reader's `reader_id` (impersonation) is rejected with
+Postgres error `42501`; a reader's `SELECT` returns only their own row, never another
+reader's; and `anon` is blocked on both read and write (0 rows visible, insert rejected) —
+matching the tracker's own design of writing nothing for signed-out visitors. This closes a
+rigor gap for every future RLS-dependent feature, not just this one — the stub file is now
+capable of testing what it always claimed to.
+
+Verified: `npm run typecheck` and `npm run build` both clean; all 8 migrations (the auth stub
+plus 7 real migrations) apply cleanly against a real Postgres 16 instance with the new grants
+in place; the RLS-as-`authenticated`-role pass described above, done by hand this session
+against a scratch database. Not yet promoted into an automated CI check (the `migrations` CI
+job only confirms migrations apply, it doesn't exercise RLS as a restricted role) — a
+reasonable follow-up now that the stub actually supports it, not done here to keep this pass
+scoped to the feature that motivated finding the gap.
 
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
@@ -193,6 +233,9 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
   components/SignupForm.tsx     Reader signup (magic-link, shouldCreateUser:true), reads
                                  ?follow=/?ref= query params to pre-fill metadata for
                                  0007's trigger.
+  components/ReadingProgressTracker.tsx  Invisible; upserts reads.completion_pct/completed
+                                 as a signed-in reader scrolls the chronicle reader.
+                                 Monotonic + debounced, writes nothing for signed-out visitors.
   app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
                                  /knowledge-core/entries* routes (never queries
                                  knowledge_core directly -- it's invisible to anon/
@@ -247,7 +290,11 @@ supabase/migrations/       7 migrations, applied in order:
                                      metadata (fails safe to null on anything malformed).
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
-                             anon/authenticated/service_role roles. NEVER run against the
+                             anon/authenticated/service_role roles, PLUS the public-schema
+                             grants a real Supabase project auto-provisions (added
+                             2026-09-13 -- without these, anon/authenticated hold no table
+                             privileges locally, so RLS can only be tested as postgres,
+                             which bypasses row security entirely). NEVER run against the
                              real Supabase project (it already has the genuine versions).
 .github/workflows/ci.yml   Three jobs: apps/web (typecheck+build), canon-service (pytest),
                             migrations (apply against a postgres:16 service container).

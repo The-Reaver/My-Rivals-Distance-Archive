@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { bookPlacementLabel } from "@/lib/format";
 import { Markdown } from "@/components/Markdown";
+import { ReadingProgressTracker } from "@/components/ReadingProgressTracker";
 
 // Chronicle reader -- the page every /characters/[slug] link and every
 // admin ChronicleEditor.tsx save has been pointing at without it existing.
@@ -74,6 +75,7 @@ export default async function ChronicleEntryPage({
 
   return (
     <main className="min-h-screen bg-bg-primary px-md py-2xl">
+      <ReadingProgressTracker chronicleEntryId={entry.id} />
       <article className="mx-auto max-w-reader">
         <Link
           href={`/characters/${character.slug}`}
