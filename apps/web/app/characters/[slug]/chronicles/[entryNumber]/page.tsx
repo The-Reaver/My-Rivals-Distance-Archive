@@ -73,6 +73,22 @@ export default async function ChronicleEntryPage({
     notFound();
   }
 
+  // Field Notes (Idea 3): fetch which paragraphs this reader has already
+  // marked in this entry, so Markdown can render their "Marked" state
+  // correctly on first paint rather than flashing unmarked-then-marked.
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  let markedHashes = new Set<string>();
+  if (user) {
+    const { data: notes } = await supabase
+      .from("field_notes")
+      .select("paragraph_hash")
+      .eq("reader_id", user.id)
+      .eq("chronicle_entry_id", entry.id);
+    markedHashes = new Set((notes ?? []).map((note) => note.paragraph_hash));
+  }
+
   return (
     <main className="min-h-screen bg-bg-primary px-md py-2xl">
       <ReadingProgressTracker chronicleEntryId={entry.id} />
@@ -95,7 +111,17 @@ export default async function ChronicleEntryPage({
           </p>
         )}
 
-        {entry.body_markdown && <Markdown>{entry.body_markdown}</Markdown>}
+        {entry.body_markdown && (
+          <Markdown
+            fieldNotes={{
+              chronicleEntryId: entry.id,
+              markedHashes,
+              isSignedIn: !!user,
+            }}
+          >
+            {entry.body_markdown}
+          </Markdown>
+        )}
 
         {entry.onyx_commentary && (
           <div className="mt-xl border-t border-border-subtle pt-md">

@@ -143,6 +143,12 @@ export default async function WelcomePage() {
         >
           Your notifications
         </Link>
+        <Link
+          href="/field-notes"
+          className="font-body text-body-small text-accent-steel underline underline-offset-2"
+        >
+          Your field notes
+        </Link>
       </div>
     </main>
   );

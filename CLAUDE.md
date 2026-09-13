@@ -14,7 +14,7 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Fourteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Fifteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
@@ -240,6 +240,56 @@ Verified: `npm run typecheck` and `npm run build` both clean; all 11 migrations 
 real) apply cleanly against real Postgres 16; every functional check above done by hand this
 session against a scratch database.
 
+**2026-09-13, same-day follow-up #8 — Field Notes (Idea 3).** `0011_field_notes.sql`: a
+`field_notes` table (reader-own/admin-only, not public — "the reader's private profile," same
+posture as `also_drawn_to`). The build note the game plan itself flags — "markdown bodies have
+no stable paragraph identity; anchoring needs a deterministic scheme (content hash or index
+plus fallback) or every body edit orphans every note against it" — is solved by
+`lib/fieldNotes.ts`'s `hashParagraph()`: a 32-bit rolling hash of the paragraph's own
+whitespace-normalized text (plus its length, a cheap extra collision guard), not a
+cryptographic hash — there's no adversary here, just a need for a short key computed
+identically every render. `paragraph_hash` is the actual identity key (`unique(reader_id,
+chronicle_entry_id, paragraph_hash)`); `paragraph_index` is stored as positional/display
+metadata only, deliberately excluded from the identity key so a body edit that reorders
+paragraphs without changing their text doesn't orphan an existing note; `paragraph_text` is a
+point-in-time snapshot so a later edit that changes or removes the marked paragraph can't erase
+what the reader saved. **Verified the hashing logic in isolation** (a standalone Node script,
+not just read for plausibility): identical text hashes identically, incidental whitespace
+variation normalizes away, and genuinely different text produces a different hash.
+
+`Markdown.tsx` gained an optional `fieldNotes` prop (a new `FieldNotesConfig` type) that, when
+present, overrides the `p` renderer to extract each paragraph's plain text (`extractParagraphText()`
+recursively flattens react-markdown's children tree — inline `em`/`a`/`code` spans and all —
+back to a string), compute its hash, and wrap it in the new `components/FieldNoteParagraph.tsx`
+client component instead of a plain `<p>`. Every other `Markdown` caller (archive documents,
+`onyx_commentary`) omits the prop and is completely unaffected. `FieldNoteParagraph` renders
+"a plain text affordance on hover at the standard 150ms, no icon" (the game plan's own words) —
+`duration-hover` was already a defined Tailwind token equal to exactly 150ms, confirmed before
+using it rather than assumed. Unlike `AlsoDrawnToToggle`'s `<a>`-nesting problem, a `<button>`
+is valid phrasing content inside a `<p>`, so this one renders inline trailing the paragraph
+text with no restructuring needed. Signed-out visitors get a plain, unmarkable paragraph, same
+posture as every other reader-write feature in this app.
+
+Deliberately scoped to `body_markdown` only, not `onyx_commentary` — the "significant passages"
+concept is about the Chronicle's own narrative prose, not the footer commentary.
+
+New `/field-notes` page (own route, same reasoning `/notifications` already established over
+folding into `/welcome`: this list can grow large across many Chronicles and many visits) lists
+every marked passage newest-first, quoting the saved `paragraph_text` and linking back to its
+Chronicle when that entry is still visible to the reader (a `null` nested relation — the entry
+became invisible at their current clearance since they marked it — renders as quoted text with
+no link, not an error, not a dropped note). Linked from `/welcome`.
+
+**Verified for real against local Postgres**: an own-row mark succeeds; marking the exact same
+paragraph twice is rejected by the unique constraint; an impersonation attempt (inserting with a
+different reader's `reader_id`) is rejected by RLS (`42501`); a second reader's `SELECT` returns
+zero rows; and an own-row delete (unmark) removes exactly the targeted row.
+
+Verified: `npm run typecheck` and `npm run build` both clean, `/field-notes` present in the
+build output; all 12 migrations (auth stub + 11 real) apply cleanly against real Postgres 16;
+every functional check above done by hand this session against a scratch database, plus the
+standalone hash-determinism check.
+
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
 (real `PostgresKnowledgeCoreRepository` / `PostgresExtractionRepository` implementations of
@@ -327,11 +377,12 @@ review's device-bridge session was being set up separately):**
   `/admin/login`, `/signup`. Dynamic (RLS-gated, server-rendered, or canon-service-backed):
   `/characters`, `/characters/[slug]`, `/characters/[slug]/chronicles/[entryNumber]`,
   `/archive`, `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`),
-  `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`, `/welcome`, `/notifications`.
+  `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`, `/welcome`, `/notifications`,
+  `/field-notes`.
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
-- All 10 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+- All 11 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
   parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
@@ -371,6 +422,11 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
                                  the only legal path to changing followed_character_id.
   lib/followEligibility.ts      Mirrors the 30-day cooldown for display (UI convenience only,
                                  the database is the real enforcement).
+  components/FieldNoteParagraph.tsx  Renders one paragraph with the "mark as significant"
+                                 hover affordance (Idea 3); plain <p> for signed-out visitors.
+  lib/fieldNotes.ts             extractParagraphText()/hashParagraph() -- the deterministic
+                                 paragraph-anchoring scheme the game plan itself calls for.
+  app/field-notes/              Reader's own marked passages, newest first.
   app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
                                  /knowledge-core/entries* routes (never queries
                                  knowledge_core directly -- it's invisible to anon/
@@ -396,7 +452,7 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
                                  POST .../{id}/transition, POST /knowledge-core/extractions --
                                  all admin-gated; the two POSTs each one Postgres transaction.
-supabase/migrations/       10 migrations, applied in order:
+supabase/migrations/       11 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -432,6 +488,7 @@ supabase/migrations/       10 migrations, applied in order:
   0010_follow_reconsideration.sql   follow_changes log + change_followed_character() RPC (the
                                      only legal path to changing followed_character_id now --
                                      direct UPDATE on reader_profiles is revoked outright).
+  0011_field_notes.sql              field_notes table (reader-own/admin only, NOT public).
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
                              anon/authenticated/service_role roles, PLUS the public-schema

@@ -1,5 +1,16 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { FieldNoteParagraph } from "@/components/FieldNoteParagraph";
+import { extractParagraphText, hashParagraph } from "@/lib/fieldNotes";
+
+/** Passed only from the chronicle reader (Field Notes, Idea 3) -- every
+ * other Markdown caller (archive documents, onyx_commentary) omits this
+ * and gets the plain, unmarkable paragraph rendering, unchanged. */
+export type FieldNotesConfig = {
+  chronicleEntryId: string;
+  markedHashes: ReadonlySet<string>;
+  isSignedIn: boolean;
+};
 
 // Renders trusted, admin-authored body_markdown (chronicle entries, world
 // briefings, archive documents). This is never end-user input, so the usual
@@ -9,7 +20,19 @@ import remarkGfm from "remark-gfm";
 // Custom element renderers map to the Visual Direction type scale/tokens
 // instead of pulling in the Tailwind typography plugin, so headings/links
 // inside prose stay on the same design-token system as the rest of the app.
-export function Markdown({ children }: { children: string }) {
+export function Markdown({
+  children,
+  fieldNotes,
+}: {
+  children: string;
+  fieldNotes?: FieldNotesConfig;
+}) {
+  // Captured in this render's closure and incremented once per paragraph
+  // in document order -- react-markdown invokes the `p` renderer
+  // synchronously as it walks the tree, so this is a safe, simple stand-in
+  // for a real paragraph index without needing external state.
+  let paragraphIndex = 0;
+
   return (
     <div className="font-body text-body text-text-primary">
       <ReactMarkdown
@@ -24,7 +47,26 @@ export function Markdown({ children }: { children: string }) {
           h3: (props) => (
             <h4 className="mt-md font-display text-card-title text-text-primary" {...props} />
           ),
-          p: (props) => <p className="mt-md leading-relaxed" {...props} />,
+          p: (props) => {
+            if (!fieldNotes) {
+              return <p className="mt-md leading-relaxed" {...props} />;
+            }
+            const index = paragraphIndex++;
+            const text = extractParagraphText(props.children);
+            const hash = hashParagraph(text);
+            return (
+              <FieldNoteParagraph
+                chronicleEntryId={fieldNotes.chronicleEntryId}
+                paragraphIndex={index}
+                paragraphHash={hash}
+                paragraphText={text}
+                initiallyMarked={fieldNotes.markedHashes.has(hash)}
+                isSignedIn={fieldNotes.isSignedIn}
+              >
+                {props.children}
+              </FieldNoteParagraph>
+            );
+          },
           a: (props) => (
             <a className="text-accent-gold underline underline-offset-2" {...props} />
           ),
