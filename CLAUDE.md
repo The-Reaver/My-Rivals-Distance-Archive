@@ -692,39 +692,62 @@ beyond `/health`; no service-role key lives in this repo or its `.env.example` a
 per its own module docstring, `app/auth.py` verifies tokens against Supabase's public JWKS,
 so canon-service never needs to hold a shared secret.
 
-## Six decisions queued for the real Brain Trust, 2026-09-13
+## Six decisions queued for the real Brain Trust, 2026-09-13 — RESOLVED 2026-09-13
 
-Asked directly, Abad routed all six of the following to the real Brain Trust investigation
-process (the same device-bridge session as the SEO/GEO charter review below) rather than
-have them decided ad hoc from this session or accept the "recommended" option offered
-alongside each. His instruction: genuinely independent investigation by Augustin and every
-other Brain Trust agent, plus AJ and the four Breakers, each with no visibility into what the
-others are doing, reconvening into one meta-build recommendation per decision that specifies
-the workflow, the specification for the specific intended user, what the UI should do for
-that user, and how the features/functions serve them. None of these six are decided yet —
-do not implement any of them from a guess; wait for the Brain Trust's actual output.
+**Resolved.** The device-Core merge landed (see the Knowledge Core repo's CLAUDE.md, "Standing
+blocker" section, now closed), which made the real Brain Trust protocol reachable from an
+ordinary Claude Code session — no device bridge needed for this kind of review, only for
+reaching files that still live solely on the operator's own machine. All six items below ran
+through the real process (`research/knowledge-home/structure-notes/brain-trust-on-demand-protocol.md`
+in the Knowledge Core repo), seven seats each investigating independently, several verifying
+claims directly against this live repo and the live Supabase project rather than trusting the
+brief. Full first-round findings: `docs/lords-of-cian/2026-09-13-archive-app-six-open-items-brain-trust-review.md`
+in the Knowledge Core repo. Closing verdicts (rendered per Abad's explicit instruction to let
+the Brain Trust decide rather than bring back a menu): `docs/lords-of-cian/2026-09-13-archive-app-six-open-items-final-verdicts.md`,
+same repo.
 
-1. **Reader Demand Score formula (P1-1).** `demand_scores` and its public-read RLS policy
-   exist; nothing computes a real number into it. Inputs available: `chronicle_requests`,
-   `reads` (`completion_pct`/`completed`), `shares`, `referrals` (credited only). The
-   strategy doc's own framing: a 150-and-rising character should outrank a 200-and-flat one.
-2. **The Level 2 clearance-unlock rule.** Two conflicting readings across the source docs:
-   complete 2 of 3 actions (read/share/request), vs. an OR-based gate (read 3 fully, OR
-   share once, OR request 2). Nothing writes to `reader_profiles.clearance_level` past its
-   default yet — this blocks the reader loop from doing anything real.
-3. **`quiz_questions` (P3-1):** build the in-world "correspondence" diagnostic now, defer
-   past launch, or drop the table/feature entirely.
-4. **Bulk Character Codex ingestion (P1-6):** how to handle the Anthropic API key
-   canon-service needs for AI-Parse, and whether to build the pipeline now (dormant, no key
-   set) or hold the task entirely until a key and approach exist.
-5. **Email provider for the Request Fulfillment Loop (Idea 2's other half).** Notifications
-   land in-app already (`notifications` table + `/notifications`, follow-up #5). Recommended
-   Resend, not decided — asked directly and routed to the Brain Trust rather than accepted.
-6. **When to unpause the `lords-of-cian-archive` Supabase project.** Confirmed via the
-   Supabase API (not assumed) that the project is currently `INACTIVE`. Blocks real email
-   delivery, a live Database Webhook/Edge Function deploy, and P1-7 production deployment
-   generally — all three wait on this same decision. Asked directly whether to unpause now;
-   routed to the Brain Trust instead of decided ad hoc.
+Outcome, briefly (full reasoning in the two linked docs):
+
+1. **Reader Demand Score formula (P1-1):** ships now as an internal-only, fraud-discounted,
+   non-reader-facing drafting-priority signal — not a public leaderboard. Concrete formula
+   spec in the closing-verdicts doc.
+2. **The Level 2 clearance-unlock rule:** `1 completed read AND (1 share OR 1 request)` —
+   read is mandatory regardless of the companion action. Neither original reading (pure OR,
+   pure 2-of-3) was safe as worded; this closes both flagged holes.
+3. **`quiz_questions` (P3-1):** defers behind a concrete trigger (items 1 & 2 live 4 weeks +
+   ≥25 registered readers), stays a plain comprehension tool, not a personality-quiz redesign.
+   **A real, already-fixed vulnerability, done 2026-09-13:** its RLS policy leaked
+   `correct_index` (the answer key) to any signed-in reader before they answered — closed via
+   `supabase/migrations/0016_lock_down_quiz_questions_answer_key.sql`, applied to the live
+   project, independent of the build-timing decision.
+4. **Bulk Character Codex ingestion (P1-6):** HOLD, unanimous, no split to arbitrate — there is
+   no dormant pipeline (zero code calls the Anthropic SDK anywhere, despite the dependency
+   being pinned), so this is "build from zero," not "flip a key on." Conditions for when it is
+   built are in the first-round doc.
+5. **Email provider for the Request Fulfillment Loop:** Resend, via a Supabase Database
+   Webhook → Edge Function (not app-side), gated only on email-confirmation re-enablement, with
+   a bounded 90-day/500-send checkpoint to revisit on real data.
+6. **When to unpause `lords-of-cian-archive`:** done — restored via
+   `mcp__Supabase__restore_project` on 2026-09-13, confirmed `ACTIVE_HEALTHY`. Post-unpause
+   `get_advisors` ran per the corrected sequencing (the original "check advisors before
+   unpausing" plan doesn't work — advisors fails soft against an unreachable paused database,
+   proven directly during the review). Two real findings from that run, both fixed the same
+   day: the `quiz_questions` leak above, and `change_followed_character`'s `revoke ... from
+   anon` never actually working because the function's default `PUBLIC` grant was never
+   revoked (not exploitable — the function's own `auth.uid()` check already blocks anonymous
+   calls — but closed for correctness via
+   `supabase/migrations/0017_close_change_followed_character_public_grant.sql`).
+
+**Real, significant side-discovery:** the live project had only ever received migrations
+0001-0005 (through `seed_verification_data`, 2026-08-24) — migrations 0006 through 0015 had
+been verified against local Postgres in every prior session but never actually applied to the
+live project. All were applied during this unpause (`mcp__Supabase__list_migrations` now shows
+all 17, matching the repo exactly). This means every feature built since 0006 (P0-4 fraud
+controls, the Standing Requests Ledger, Also Drawn To, Follow Reconsideration, Field Notes,
+Shares, Connective Tissue Trails, Two Dossiers Side by Side) is only now live against the real
+project for the first time — worth knowing before assuming any of it has been exercised
+against real Supabase behavior (GoTrue, PostgREST's actual RLS enforcement path) rather than
+the local auth-schema stub.
 
 ## Standing blocker, unaffected by anything above
 

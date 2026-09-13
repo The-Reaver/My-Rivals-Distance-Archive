@@ -1,0 +1,21 @@
+-- Real Brain Trust review, 2026-09-13 (Sentinel's finding, confirmed against the
+-- live project's advisors): quiz_questions_select's RLS policy grants the full
+-- row -- including correct_index, the answer key -- to any signed-in reader
+-- before they've answered, because RLS is row-level, not column-level. No UI
+-- exists against this table yet, but the schema as committed is unsafe to
+-- build a client feature directly against.
+--
+-- Immediate fix, decoupled from the P3-1 build-timing decision (Omar's closing
+-- ruling): drop direct select access for anon/authenticated entirely. Admin
+-- access is untouched -- quiz_questions_admin_write's `for all` policy,
+-- gated on is_admin(), still covers reads for content authoring. This
+-- matches the admin_settings table's own "no anon/authenticated policy at
+-- all -> default deny" pattern already used elsewhere in this schema.
+--
+-- When the quiz feature is actually built, real reader access should go
+-- through a SECURITY DEFINER grading RPC (submit_quiz_answer) plus a public
+-- question-fetch view that omits correct_index -- the same shape already
+-- proven by change_followed_character() and chronicle_request_ledger -- not
+-- by reopening this policy.
+
+drop policy "quiz_questions_select" on public.quiz_questions;
