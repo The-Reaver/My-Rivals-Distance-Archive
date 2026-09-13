@@ -1,0 +1,4 @@
+{
+  "_comment": "Maps a character_slug (as used in import manifests) to that character's live public.characters.id in the lords-of-cian-archive Supabase project. Only characters that already exist in the DB belong here -- creating a new character row is a separate, non-mechanical step (it needs hand-written dossier_cover/hook_line prose) and isn't part of bulk_import_knowledge_core.py's scope. Update this file by hand right after a new characters row is created live.",
+  "kanja": "94dcb46f-a2d7-4772-b746-4e1a0024a084"
+}

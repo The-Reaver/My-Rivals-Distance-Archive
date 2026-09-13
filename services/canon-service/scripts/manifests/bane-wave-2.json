@@ -1,0 +1,35 @@
+[
+  {
+    "rule_id": "MCD-398",
+    "title": "What the Fog Remembers",
+    "file": "docs/lords-of-cian/chronicles/what-the-fog-remembers.md",
+    "character_slug": "kanja",
+    "arc_label": "Bane",
+    "entry_number": 4,
+    "book_placement": "pre_book",
+    "batch_id": "Batch 117",
+    "clearance_level": 1
+  },
+  {
+    "rule_id": "MCD-399",
+    "title": "The Agent Who Stopped Filing Reports",
+    "file": "docs/lords-of-cian/chronicles/the-agent-who-stopped-filing-reports.md",
+    "character_slug": "kanja",
+    "arc_label": "Bane",
+    "entry_number": 5,
+    "book_placement": "pre_book",
+    "batch_id": "Batch 117",
+    "clearance_level": 1
+  },
+  {
+    "rule_id": "MCD-400",
+    "title": "The File That Would Not Close",
+    "file": "docs/lords-of-cian/chronicles/the-file-that-would-not-close.md",
+    "character_slug": "kanja",
+    "arc_label": "Bane",
+    "entry_number": 6,
+    "book_placement": "pre_book",
+    "batch_id": "Batch 117",
+    "clearance_level": 1
+  }
+]
