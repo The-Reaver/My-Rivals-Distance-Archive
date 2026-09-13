@@ -1,0 +1,86 @@
+[
+  {
+    "title": "World Atlas & Geography",
+    "category": "geography",
+    "rule_prefix": "GEO",
+    "document_type": "political_atlas",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "Arsenal & Treasures Codex",
+    "category": "arsenal",
+    "rule_prefix": "ARS",
+    "document_type": "arsenal_dossier",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "The Maw Codex",
+    "category": "factions",
+    "rule_prefix": "MAW",
+    "document_type": "institution_codex",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "The Ashkeel Institution",
+    "category": "factions",
+    "rule_prefix": "ASH",
+    "document_type": "institution_codex",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "The Cult Network",
+    "category": "factions",
+    "rule_prefix": "CULT",
+    "document_type": "institution_codex",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "Political Institutions",
+    "category": "politics",
+    "rule_prefix": "POL",
+    "document_type": "political_atlas",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "World Codex",
+    "category": "other",
+    "rule_prefix": "WC",
+    "document_type": "world_codex_expansion",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "Fortifications & Holdfasts",
+    "category": "locations",
+    "rule_prefix": "HLD",
+    "document_type": "tactical_architecture",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "The Weregildd",
+    "category": "factions",
+    "rule_prefix": "WGD",
+    "document_type": "institution_codex",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "The Sealbound Directorate",
+    "category": "factions",
+    "rule_prefix": "SBD",
+    "document_type": "institution_codex",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "Interstitial World Figures",
+    "category": "other",
+    "rule_prefix": "CHAR",
+    "document_type": "world_codex_expansion",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  },
+  {
+    "title": "Cosmology",
+    "category": "other",
+    "rule_prefix": "COS",
+    "document_type": "world_codex_expansion",
+    "batch_id": "Archive world-briefing import, 2026-09-13"
+  }
+]
