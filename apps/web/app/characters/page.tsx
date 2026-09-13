@@ -1,5 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { AlsoDrawnToToggle } from "@/components/AlsoDrawnToToggle";
+import { FollowInsteadButton } from "@/components/FollowInsteadButton";
+import { computeFollowEligibility } from "@/lib/followEligibility";
 
 // Visual Direction 6. Character Index -- grid of character cards, sorted by
 // reader demand score by default. This is the verification vertical slice:
@@ -18,17 +20,37 @@ export default async function CharacterIndexPage() {
   const user = userData.user;
   let followedCharacterId: string | null = null;
   let drawnToIds = new Set<string>();
+  let canFollowInstead = false;
   if (user) {
-    const [{ data: profile }, { data: drawnRows }] = await Promise.all([
+    const [{ data: profile }, { data: drawnRows }, { data: lastChange }] = await Promise.all([
       supabase
         .from("reader_profiles")
-        .select("followed_character_id")
+        .select("followed_character_id, created_at")
         .eq("id", user.id)
         .maybeSingle(),
       supabase.from("also_drawn_to").select("character_id").eq("reader_id", user.id),
+      // Follow Reconsideration (Idea 7): eligibility mirrors
+      // change_followed_character()'s own 30-day cooldown (0010) so the
+      // "Follow this character instead" control only appears when the RPC
+      // would actually succeed -- computeFollowEligibility is a UI
+      // convenience, not the real enforcement (the database is).
+      supabase
+        .from("follow_changes")
+        .select("changed_at")
+        .eq("reader_id", user.id)
+        .order("changed_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
     ]);
     followedCharacterId = profile?.followed_character_id ?? null;
     drawnToIds = new Set((drawnRows ?? []).map((row) => row.character_id));
+    if (profile) {
+      canFollowInstead = computeFollowEligibility({
+        followedCharacterId,
+        createdAt: profile.created_at,
+        lastChangedAt: lastChange?.changed_at ?? null,
+      }).eligible;
+    }
   }
 
   if (error) {
@@ -88,6 +110,9 @@ export default async function CharacterIndexPage() {
                     characterId={character.id}
                     initiallyDrawn={drawnToIds.has(character.id)}
                   />
+                )}
+                {user && canFollowInstead && character.id !== followedCharacterId && (
+                  <FollowInsteadButton characterId={character.id} />
                 )}
               </div>
             );

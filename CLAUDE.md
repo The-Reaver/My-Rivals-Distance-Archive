@@ -14,7 +14,7 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Thirteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Fourteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
@@ -190,6 +190,56 @@ Verified: `npm run typecheck` and `npm run build` both clean; all 10 migrations 
 real) apply cleanly against real Postgres 16; every functional check above done by hand this
 session against a scratch database.
 
+**2026-09-13, same-day follow-up #7 — Follow Reconsideration (Idea 7).** `0010_follow_reconsideration.sql`:
+a `follow_changes` log table (reader-own/admin-only, not public -- "a switch from A to B is
+itself the data point," per the game plan's own words for what this data is for) and
+`change_followed_character(uuid)`, a `SECURITY DEFINER` function that is now the **only** legal
+path to changing `reader_profiles.followed_character_id`. A first-ever pick (no prior follow)
+is always free; switching away from an existing follow is gated by a 30-day cooldown, read as
+an ongoing rate limit rather than a single lifetime use ("a switch... is itself the data
+point" implies switches, plural, are a meaningful recurring signal). Every switch is logged
+with `previous_character_id`/`new_character_id`; re-picking the same character or naming a
+nonexistent one is rejected without logging a row.
+
+**Deliberately not attempted:** the game plan's "switching resets Level 3 progress toward the
+new character." No Level 3 progress mechanism exists anywhere in this schema — `clearance_level`
+is a flat stored integer with no accumulation logic, because the actual Level 2/3 unlock rule
+is one of the four decisions still queued for the real Brain Trust. There's nothing concrete to
+reset yet; wiring one in later is a small addition to this function, not a rewrite, since it's
+now the single choke point for this change.
+
+**A real, pre-existing gap closed along the way, not something this feature introduced:**
+`reader_profiles_update_own` (0001) is a row-level RLS policy, not column-aware — left in
+place, a reader could bypass the entire cooldown with a direct
+`supabase.from('reader_profiles').update({followed_character_id: ...})` call from the browser,
+same table, same row, no RPC involved. Confirmed by grep that nothing in this codebase
+currently performs a direct client-side update against `reader_profiles` (only `.select()`
+calls exist), so there was no legitimate use case to preserve. Closed by revoking `UPDATE` on
+`reader_profiles` from `anon`/`authenticated` outright and dropping the now-dead policy —
+matching the same "no legitimate direct-call use case" reasoning `0003`/`0004` already applied
+to the signup trigger functions. **Verified for real**: a direct `UPDATE` against
+`reader_profiles` as `authenticated` now fails at the grant level (`42501`, before RLS is even
+consulted), while `change_followed_character()` (which runs as its owner, unaffected by the
+caller's own grants) still works correctly.
+
+New `components/FollowInsteadButton.tsx` (calls the RPC via `supabase.rpc(...)`) renders on the
+Character Index alongside `AlsoDrawnToToggle`, gated by a new `lib/followEligibility.ts` helper
+that mirrors the database's own 30-day rule for display purposes only — the database remains
+the real enforcement point. `/welcome` shows "Follow a different character instead" when
+eligible, or "You can follow someone else starting `<date>`" when not.
+
+**Verified for real against local Postgres, every case**: a first-ever pick succeeds with no
+cooldown; an immediate second switch is blocked (`follow_change_cooldown_active`); a direct
+`UPDATE` bypass attempt is rejected (`42501`); backdating the last change to 31 days ago (as
+superuser, simulating real elapsed time) makes a switch succeed; re-picking the already-followed
+character is rejected (`already_following_this_character`) without a new log row; a nonexistent
+character id is rejected (`character_not_found`); and `follow_changes` RLS correctly scopes a
+second reader to zero visible rows.
+
+Verified: `npm run typecheck` and `npm run build` both clean; all 11 migrations (auth stub + 10
+real) apply cleanly against real Postgres 16; every functional check above done by hand this
+session against a scratch database.
+
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
 (real `PostgresKnowledgeCoreRepository` / `PostgresExtractionRepository` implementations of
@@ -281,7 +331,7 @@ review's device-bridge session was being set up separately):**
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
-- All 9 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+- All 10 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
   parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
@@ -317,6 +367,10 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
                                  Monotonic + debounced, writes nothing for signed-out visitors.
   components/AlsoDrawnToToggle.tsx  Direct browser write to also_drawn_to (Idea 4); a sibling
                                  to each Character Index card's own <a>, never nested inside it.
+  components/FollowInsteadButton.tsx  Calls change_followed_character() via RPC (Idea 7) --
+                                 the only legal path to changing followed_character_id.
+  lib/followEligibility.ts      Mirrors the 30-day cooldown for display (UI convenience only,
+                                 the database is the real enforcement).
   app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
                                  /knowledge-core/entries* routes (never queries
                                  knowledge_core directly -- it's invisible to anon/
@@ -342,7 +396,7 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
                                  POST .../{id}/transition, POST /knowledge-core/extractions --
                                  all admin-gated; the two POSTs each one Postgres transaction.
-supabase/migrations/       9 migrations, applied in order:
+supabase/migrations/       10 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -375,6 +429,9 @@ supabase/migrations/       9 migrations, applied in order:
                                      once per character on its first live chronicle entry.
   0009_also_drawn_to.sql            also_drawn_to table (reader-own/admin only, NOT public --
                                      internal affinity data, unlike 0008's ledger).
+  0010_follow_reconsideration.sql   follow_changes log + change_followed_character() RPC (the
+                                     only legal path to changing followed_character_id now --
+                                     direct UPDATE on reader_profiles is revoked outright).
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
                              anon/authenticated/service_role roles, PLUS the public-schema

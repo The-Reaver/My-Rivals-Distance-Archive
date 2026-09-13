@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { computeFollowEligibility } from "@/lib/followEligibility";
 
 // Lands here straight off the signup magic-link (auth/callback's `next`
 // param). Not a gate -- redirect-if-signed-out is a UX convenience so a
@@ -16,10 +17,10 @@ export default async function WelcomePage() {
     redirect("/signup");
   }
 
-  const [{ data: profile }, { data: alsoDrawnTo }] = await Promise.all([
+  const [{ data: profile }, { data: alsoDrawnTo }, { data: lastChange }] = await Promise.all([
     supabase
       .from("reader_profiles")
-      .select("referral_code, followed_character_id, characters(slug, name)")
+      .select("referral_code, followed_character_id, created_at, characters(slug, name)")
       .eq("id", user.id)
       .maybeSingle(),
     // Also Drawn To (Idea 4): optional secondary follows, added from the
@@ -31,6 +32,15 @@ export default async function WelcomePage() {
       .select("character_id, created_at, characters(slug, name)")
       .eq("reader_id", user.id)
       .order("created_at", { ascending: false }),
+    // Follow Reconsideration (Idea 7): see /characters for the same
+    // eligibility computation, used there to gate FollowInsteadButton.
+    supabase
+      .from("follow_changes")
+      .select("changed_at")
+      .eq("reader_id", user.id)
+      .order("changed_at", { ascending: false })
+      .limit(1)
+      .maybeSingle(),
   ]);
 
   const followedCharacter = profile
@@ -39,21 +49,45 @@ export default async function WelcomePage() {
       : profile.characters
     : null;
 
+  const followEligibility = profile
+    ? computeFollowEligibility({
+        followedCharacterId: profile.followed_character_id,
+        createdAt: profile.created_at,
+        lastChangedAt: lastChange?.changed_at ?? null,
+      })
+    : null;
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-bg-primary px-md text-center">
       <h1 className="font-display text-section-heading text-text-primary">You&rsquo;re in.</h1>
 
       {followedCharacter ? (
-        <p className="mt-md font-body text-body text-text-primary">
-          You&rsquo;re following{" "}
-          <Link
-            href={`/characters/${followedCharacter.slug}`}
-            className="text-accent-gold underline underline-offset-2"
-          >
-            {followedCharacter.name}
-          </Link>
-          . New Chronicles show up there first.
-        </p>
+        <>
+          <p className="mt-md font-body text-body text-text-primary">
+            You&rsquo;re following{" "}
+            <Link
+              href={`/characters/${followedCharacter.slug}`}
+              className="text-accent-gold underline underline-offset-2"
+            >
+              {followedCharacter.name}
+            </Link>
+            . New Chronicles show up there first.
+          </p>
+          {followEligibility?.eligible ? (
+            <p className="mt-xs font-body text-caption text-accent-steel">
+              <Link href="/characters" className="text-accent-gold underline underline-offset-2">
+                Follow a different character instead
+              </Link>
+            </p>
+          ) : (
+            followEligibility?.nextEligibleAt && (
+              <p className="mt-xs font-body text-caption text-accent-steel">
+                You can follow someone else starting{" "}
+                {followEligibility.nextEligibleAt.toLocaleDateString()}.
+              </p>
+            )
+          )}
+        </>
       ) : (
         <p className="mt-md font-body text-body text-text-primary">
           <Link href="/characters" className="text-accent-gold underline underline-offset-2">
