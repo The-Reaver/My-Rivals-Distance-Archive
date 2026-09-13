@@ -14,7 +14,7 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Eleven commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Twelve commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
@@ -112,6 +112,52 @@ job only confirms migrations apply, it doesn't exercise RLS as a restricted role
 reasonable follow-up now that the stub actually supports it, not done here to keep this pass
 scoped to the feature that motivated finding the gap.
 
+**2026-09-13, same-day follow-up #5 — Standing Requests Ledger + Request Fulfillment Loop
+(game plan Ideas 1–2).** `0008_request_ledger_and_fulfillment.sql`:
+- **The Ledger (Idea 1):** two views, `chronicle_request_ledger` (per-character request/reason
+  counts) and `chronicle_request_reasons` (the voluntarily-typed reasons themselves, newest
+  first) — both reader-identity-free (no `reader_id`, no email), same "public aggregate" shape
+  P1-1 already established for `demand_scores`. Mechanism is new to this codebase though: a
+  plain Postgres view checks the *owner's* privileges/RLS against its underlying tables by
+  default (`security_invoker` defaults to `false`), not the querying role's — so a view owned
+  by the migration role bypasses `chronicle_requests`' own-row RLS the same way a `SECURITY
+  DEFINER` function would, without needing one. Verified for real rather than assumed: as
+  `authenticated` reader B (who owns 1 of 2 seeded requests), `chronicle_requests` itself
+  correctly returns only 1 row, while `chronicle_request_ledger` correctly returns the true
+  aggregate of 2 — confirming the bypass works and nothing reader-identifying leaks (the views
+  never select `reader_id` in the first place, so even a wrong assumption here would have been
+  an undercount bug, not a privacy one). Wired into `/characters/[slug]`'s existing "pending"
+  branch, alongside `RequestChronicleButton`.
+- **The Fulfillment Loop (Idea 2), in-app half:** a new `notifications` table (RLS: select/
+  update own only, no reader-driven insert policy at all — every row comes from the trigger
+  below) plus `notify_chronicle_request_fulfillment()`, firing `after insert or update of
+  is_live on chronicle_entries`. Fires exactly once per character, the moment its *first* live
+  entry appears (per the game plan's own correction: `is_live` flipping true, not the
+  `published_books` toggle) — a `NOT EXISTS` check against any other already-live row for that
+  character gates it, and an `OLD.is_live IS TRUE` early-return on the `UPDATE` path stops an
+  unrelated re-save of an already-live entry from re-firing. Also flips
+  `characters.classification_status` from `pending` to `active` in the same pass — nothing else
+  in this schema made that transition, and leaving it stuck on `pending` forever after real
+  content ships was a real latent bug the character page's own `pending`/`active` branching
+  would have hit. New `/notifications` page (redirect-if-signed-out, same convenience posture
+  as `/welcome`) renders each reader's own rows; linked from `/welcome`. **Real email delivery
+  (Idea 2's other half) is deliberately not attempted** — it needs an email-provider account/API
+  key decision outside this session's authority, same posture 0006 took on signup rate
+  limiting/disposable-domain blocking; flagged here rather than guessed at.
+- **Verified for real against local Postgres**, not just read for plausibility: seeded two
+  readers requesting one pending character (one with a reason, one without); confirmed the
+  ledger/reasons views before any entry goes live; flipped a first `chronicle_entries` row
+  live and confirmed both requesters get exactly one `notifications` row each, with the correct
+  message, and `classification_status` flips to `active`; flipped a *second* entry live for the
+  same character and confirmed zero new notifications; edited the title of the already-live
+  first entry (an `UPDATE ... SET title` that leaves `is_live` unchanged) and confirmed zero
+  new notifications; confirmed `notifications` RLS as `authenticated` reader A — `SELECT`
+  returns only their own row, and a self-insert attempt is rejected (`42501`, no insert policy
+  exists for the role at all).
+- Verified: `npm run typecheck` and `npm run build` both clean, `/notifications` present in the
+  build output; all 9 migrations (auth stub + 8 real) apply cleanly against real Postgres 16;
+  every functional check above done by hand this session against a scratch database.
+
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
 (real `PostgresKnowledgeCoreRepository` / `PostgresExtractionRepository` implementations of
@@ -199,11 +245,11 @@ review's device-bridge session was being set up separately):**
   `/admin/login`, `/signup`. Dynamic (RLS-gated, server-rendered, or canon-service-backed):
   `/characters`, `/characters/[slug]`, `/characters/[slug]/chronicles/[entryNumber]`,
   `/archive`, `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`),
-  `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`, `/welcome`.
+  `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`, `/welcome`, `/notifications`.
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
-- All 7 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+- All 8 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
   parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
@@ -217,6 +263,7 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
   app/archive/                 P1-2: archive_documents reader (index + [id]).
   app/signup/, app/welcome/     Reader-facing signup (magic-link, shouldCreateUser:true)
                                  and its post-callback landing page.
+  app/notifications/            Reader's own notifications rows (Idea 2's in-app half).
   app/admin/login/              Magic-link admin sign-in (outside the auth gate).
   app/admin/(dashboard)/         Gated on reader_profiles.is_admin (route group, no URL
                                  segment of its own): dashboard home + /chronicles editor.
@@ -261,7 +308,7 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
                                  POST .../{id}/transition, POST /knowledge-core/extractions --
                                  all admin-gated; the two POSTs each one Postgres transaction.
-supabase/migrations/       7 migrations, applied in order:
+supabase/migrations/       8 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -288,6 +335,10 @@ supabase/migrations/       7 migrations, applied in order:
   0007_signup_follow_character.sql  Extends handle_new_user() to populate
                                      reader_profiles.followed_character_id from signup
                                      metadata (fails safe to null on anything malformed).
+  0008_request_ledger_and_fulfillment.sql  chronicle_request_ledger/_reasons views
+                                     (public aggregate, view-owner-bypasses-RLS pattern);
+                                     notifications table + fulfillment trigger, firing
+                                     once per character on its first live chronicle entry.
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
                              anon/authenticated/service_role roles, PLUS the public-schema

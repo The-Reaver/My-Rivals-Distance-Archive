@@ -47,14 +47,30 @@ export default async function CharacterDetailPage({
     notFound();
   }
 
-  const [{ data: entries }, { data: userData }] = await Promise.all([
-    supabase
-      .from("chronicle_entries")
-      .select("id, entry_number, arc_label, title, book_placement")
-      .eq("character_id", character.id)
-      .order("entry_number"),
-    supabase.auth.getUser(),
-  ]);
+  const [{ data: entries }, { data: userData }, { data: ledger }, { data: requestReasons }] =
+    await Promise.all([
+      supabase
+        .from("chronicle_entries")
+        .select("id, entry_number, arc_label, title, book_placement")
+        .eq("character_id", character.id)
+        .order("entry_number"),
+      supabase.auth.getUser(),
+      // Standing Requests Ledger (Idea 1): public aggregate, no reader
+      // identity -- chronicle_request_ledger/_reasons are views that bypass
+      // chronicle_requests' own-row RLS by design (see 0008's own comment).
+      // Only rendered in the "pending" branch below, but cheap enough to
+      // always fetch alongside everything else on this page.
+      supabase
+        .from("chronicle_request_ledger")
+        .select("request_count")
+        .eq("character_id", character.id)
+        .maybeSingle(),
+      supabase
+        .from("chronicle_request_reasons")
+        .select("reason, created_at")
+        .eq("character_id", character.id)
+        .limit(20),
+    ]);
 
   const user = userData.user;
   let alreadyRequested = false;
@@ -121,11 +137,29 @@ export default async function CharacterDetailPage({
               <p className="font-body text-body-small text-accent-steel">
                 No Chronicle has been written for {character.name} yet.
               </p>
+              {ledger && ledger.request_count > 0 && (
+                <p className="mt-xs font-mono text-caption text-accent-gold">
+                  {ledger.request_count} reader{ledger.request_count === 1 ? "" : "s"} have
+                  requested this Chronicle.
+                </p>
+              )}
               <RequestChronicleButton
                 characterId={character.id}
                 isSignedIn={!!user}
                 alreadyRequested={alreadyRequested}
               />
+              {requestReasons && requestReasons.length > 0 && (
+                <ul className="mt-md space-y-xs border-t border-border-subtle pt-sm">
+                  {requestReasons.map((entry, index) => (
+                    <li
+                      key={`${entry.created_at}-${index}`}
+                      className="font-body text-body-small italic text-text-primary"
+                    >
+                      &ldquo;{entry.reason}&rdquo;
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ) : (
             <p className="mt-md font-body text-body-small text-accent-steel">

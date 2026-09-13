@@ -61,12 +61,20 @@ export default async function WelcomePage() {
         </div>
       )}
 
-      <Link
-        href="/archive"
-        className="mt-xl font-body text-body-small text-accent-steel underline underline-offset-2"
-      >
-        Explore the Archive
-      </Link>
+      <div className="mt-xl flex gap-md">
+        <Link
+          href="/archive"
+          className="font-body text-body-small text-accent-steel underline underline-offset-2"
+        >
+          Explore the Archive
+        </Link>
+        <Link
+          href="/notifications"
+          className="font-body text-body-small text-accent-steel underline underline-offset-2"
+        >
+          Your notifications
+        </Link>
+      </div>
     </main>
   );
 }
