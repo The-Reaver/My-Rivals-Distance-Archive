@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
-type EntityType = "character" | "chronicle_entry" | "archive_document";
+type EntityType = "character" | "chronicle_entry" | "archive_document" | "world_briefing";
 
-// Shares tracking: the shares table (0001) has had RLS and a unique-entity
-// CHECK constraint (0012) since before this pass but no writer. Uses the
-// Web Share API where available (mobile browsers, mostly), falling back to
+// Shares tracking: the shares table (0001) has had RLS and an entity-type
+// CHECK constraint (0012, extended in 0013 for world_briefing) since
+// before this pass but no writer. Uses the Web Share API where available
+// (mobile browsers, mostly), falling back to
 // a clipboard copy everywhere else -- both record one shares row, best
 // effort, for a signed-in reader only.
 //

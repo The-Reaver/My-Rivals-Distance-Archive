@@ -14,7 +14,7 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Sixteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Seventeen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
@@ -316,6 +316,73 @@ component embedded in three existing pages, not a page of its own); all 13 migra
 + 12 real) apply cleanly against real Postgres 16; every functional check above done by hand this
 session against a scratch database.
 
+**2026-09-13, same-day follow-up #10 — Connective Tissue Trails + Two Dossiers Side by Side
+(Ideas 8-9), plus a real prerequisite found and closed first.** Picking up Ideas 8-9 surfaced
+that `world_briefings` has had RLS and a full schema since `0001` with **no reader-facing route
+anywhere** — confirmed by grepping the app directory before writing anything, not assumed: no
+`/world` page, no admin editor either (the only way a row gets in is canon-service's extraction
+pipeline). P1-2 always meant "Character profiles, `/world`, plus `/archive`" — only the
+`/archive` half ever got built. Idea 8 is specifically about cross-link clicks "in the Level 2
+world briefings," which has no meaning without a page to click from, so this had to be built
+first: new `/world` (grouped by `category`, same pattern as `/archive`) and `/world/[id]`
+(same `notFound()`-for-gated-or-missing pattern, plus `related_character_ids` rendered as
+links). `ShareButton`'s entity types and `shares`' own `CHECK` constraint were extended for
+`world_briefing` too (`0013_shares_add_world_briefing.sql` — a new `ALTER`, not an edit to
+`0012`, since migrations are immutable once applied). Both linked from `/welcome`.
+
+**Connective Tissue Trails (Idea 8).** The game plan's own text assumes a pre-existing
+`engagement_events` table with a metadata column to add — no such table exists in this
+implementation (confirmed earlier in the session: this build resolved that concept into
+`reads`/`shares`/`quiz_attempts`/`demand_scores` instead), so `0014_connective_tissue_trails.sql`
+is a dedicated new table rather than a column addition to something that doesn't exist.
+`target_path` stores the raw link href (e.g. `/characters/kwame-ade`) rather than resolving it to
+a target entity id — the only thing knowable synchronously at click time without an extra lookup
+that would delay the "invisible" click. Read "invisible to the reader" literally: unlike
+`field_notes`/`also_drawn_to` (a reader's own visible collection), this is pure backend signal —
+**admin-only select, no reader-facing view of their own trail at all**, a real posture difference
+from every other tracking feature built this session, verified explicitly rather than assumed
+(a signed-in reader inserting their own row then querying it back gets 0 rows; an admin querying
+the same table sees it). `Markdown.tsx` gained a second opt-in prop, `connectiveTissue` (alongside
+`fieldNotes`), overriding the `a` renderer to `components/CrossLinkAnchor.tsx`, which fires an
+unawaited, fire-and-forget insert on click — never blocking or delaying navigation, no visible
+confirmation of any kind. `lib/crossLinks.ts`'s `isCrossLinkTarget()` (a link is a "cross-link"
+if it points to `/characters/`, `/world/`, or `/archive/`) was verified in isolation with a
+standalone Node script covering internal/external/index/detail-page cases before wiring it in.
+Wired only into `/world/[id]`, matching the game plan's own scoping to world briefings — every
+other `Markdown` caller renders plain, untracked links.
+
+**Two Dossiers, Side by Side (Idea 9).** Shares Idea 8's own flagged problem — "a pair of
+character IDs doesn't fit a single entity-ID field" — solved the same way, a dedicated table
+(`0015_character_comparisons.sql`) rather than forcing the pair through `shares`. `character_a_id`/
+`character_b_id` are stored in canonical order (`check (character_a_id < character_b_id)`, UUIDs
+compare byte-wise) so a reader comparing A-then-B and one comparing B-then-A produce the identical
+signal, not two — verified for real: inserting a reversed-order pair is rejected by the `CHECK`,
+the canonical order succeeds, and re-inserting the same canonical pair is rejected by
+`unique(reader_id, character_a_id, character_b_id)` rather than inflating the count. Same
+admin-only, not-reader-visible posture as Connective Tissue Trails — a comparison isn't framed as
+something a reader returns to see again, unlike a personal collection.
+
+Selection lives in the URL (`?compare=id1,id2`) rather than lifted component state — the
+Character Index stays a server component with small client islands per card (matching
+`AlsoDrawnToToggle`/`FollowInsteadButton`), and a URL param coordinates selection across every
+card for free (shareable, survives a refresh). New `components/CompareCheckbox.tsx` (per card,
+caps at two) and `components/CompareBar.tsx` (appears only once exactly two are selected,
+linking to the comparison) — both wrapped in `<Suspense>` per Next.js's `useSearchParams()`
+requirement, same pattern `/signup`'s `SignupForm` already established. New static route
+`/characters/compare` (confirmed via the actual build output that Next.js resolves it ahead of
+the `/characters/[slug]` dynamic segment, no collision) reads `?a=`/`?b=`, renders both dossiers
+in a plain 50/50 grid — "the symmetric two-character layout is new, not inherited," per the game
+plan's own correction against reusing the asymmetric Lore Panel — and logs the comparison
+server-side the moment the page renders for a signed-in reader with two valid, distinct ids
+(viewing the page with both ids present *is* the comparison event); a duplicate-pair insert is
+silently ignored, not surfaced as an error.
+
+Verified: `npm run typecheck` and `npm run build` both clean; `/world`, `/world/[id]`, and
+`/characters/compare` all present in the build output with no route collisions; all 16 migrations
+(auth stub + 15 real) apply cleanly against real Postgres 16; every RLS/constraint check above
+done by hand this session against a scratch database, plus the standalone cross-link-pattern
+check.
+
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
 (real `PostgresKnowledgeCoreRepository` / `PostgresExtractionRepository` implementations of
@@ -400,15 +467,15 @@ review's device-bridge session was being set up separately):**
   `services/canon-service/.env.example` documents both `DATABASE_URL` (service_role, direct
   Postgres) and `TEST_DATABASE_URL`.
 - `apps/web`: `npm run typecheck` clean, `npm run build` succeeds. Static routes: `/`,
-  `/admin/login`, `/signup`. Dynamic (RLS-gated, server-rendered, or canon-service-backed):
-  `/characters`, `/characters/[slug]`, `/characters/[slug]/chronicles/[entryNumber]`,
-  `/archive`, `/archive/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`),
-  `/admin/knowledge-core` (+ `/[id]`), `/auth/callback`, `/welcome`, `/notifications`,
-  `/field-notes`.
+  `/admin/login`, `/signup`, `/characters/compare`. Dynamic (RLS-gated, server-rendered, or
+  canon-service-backed): `/characters`, `/characters/[slug]`,
+  `/characters/[slug]/chronicles/[entryNumber]`, `/archive`, `/archive/[id]`, `/world`,
+  `/world/[id]`, `/admin`, `/admin/chronicles` (+ `/new`, `/[id]`), `/admin/knowledge-core`
+  (+ `/[id]`), `/auth/callback`, `/welcome`, `/notifications`, `/field-notes`.
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
-- All 13 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+- All 16 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
   parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
@@ -455,7 +522,18 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
   app/field-notes/              Reader's own marked passages, newest first.
   components/ShareButton.tsx    Web Share API with a clipboard-copy fallback; logs one shares
                                  row for a signed-in reader. Used on character/chronicle/
-                                 archive-document detail pages.
+                                 archive-document/world-briefing detail pages.
+  app/world/, app/world/[id]/   world_briefings' reader surface (P1-2's other half, never
+                                 built until this pass). Grouped-by-category index, detail
+                                 page with related_character_ids links.
+  components/CrossLinkAnchor.tsx  Fire-and-forget click logging for entity cross-links
+                                 (Idea 8); never blocks navigation, no visible confirmation.
+  lib/crossLinks.ts             isCrossLinkTarget() -- what counts as a trackable cross-link.
+  components/CompareCheckbox.tsx, CompareBar.tsx  Two-character selection via a ?compare=
+                                 URL param (Idea 9), coordinated across every Character
+                                 Index card without lifting state into one client component.
+  app/characters/compare/       Static route (resolves ahead of [slug], no collision);
+                                 renders two dossiers side by side, logs the comparison.
   app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
                                  /knowledge-core/entries* routes (never queries
                                  knowledge_core directly -- it's invisible to anon/
@@ -481,7 +559,7 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
                                  POST .../{id}/transition, POST /knowledge-core/extractions --
                                  all admin-gated; the two POSTs each one Postgres transaction.
-supabase/migrations/       12 migrations, applied in order:
+supabase/migrations/       15 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -520,6 +598,11 @@ supabase/migrations/       12 migrations, applied in order:
   0011_field_notes.sql              field_notes table (reader-own/admin only, NOT public).
   0012_shares_entity_type_check.sql  Adds the CHECK constraint shares (0001) was missing,
                                      matching every other controlled-vocabulary column.
+  0013_shares_add_world_briefing.sql  Extends 0012's CHECK for the new /world/[id] page.
+  0014_connective_tissue_trails.sql  Cross-link click log (Idea 8) -- admin-only, never
+                                     reader-visible, scoped to world_briefings via a real FK.
+  0015_character_comparisons.sql    Two-character comparison log (Idea 9) -- canonical pair
+                                     ordering (a_id < b_id) so an unordered pair counts once.
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
                              anon/authenticated/service_role roles, PLUS the public-schema

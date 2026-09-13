@@ -138,6 +138,12 @@ export default async function WelcomePage() {
           Explore the Archive
         </Link>
         <Link
+          href="/world"
+          className="font-body text-body-small text-accent-steel underline underline-offset-2"
+        >
+          Explore the World
+        </Link>
+        <Link
           href="/notifications"
           className="font-body text-body-small text-accent-steel underline underline-offset-2"
         >

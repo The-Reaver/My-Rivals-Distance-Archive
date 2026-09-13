@@ -1,6 +1,9 @@
+import { Suspense } from "react";
 import { createClient } from "@/lib/supabase/server";
 import { AlsoDrawnToToggle } from "@/components/AlsoDrawnToToggle";
 import { FollowInsteadButton } from "@/components/FollowInsteadButton";
+import { CompareCheckbox } from "@/components/CompareCheckbox";
+import { CompareBar } from "@/components/CompareBar";
 import { computeFollowEligibility } from "@/lib/followEligibility";
 
 // Visual Direction 6. Character Index -- grid of character cards, sorted by
@@ -75,6 +78,9 @@ export default async function CharacterIndexPage() {
         <h1 className="font-display text-section-heading text-text-primary">
           Character Index
         </h1>
+        <Suspense>
+          <CompareBar />
+        </Suspense>
         <div className="mt-lg grid grid-cols-1 gap-md sm:grid-cols-2 lg:grid-cols-3">
           {sorted.map((character) => {
             const score = Array.isArray(character.demand_scores)
@@ -114,6 +120,9 @@ export default async function CharacterIndexPage() {
                 {user && canFollowInstead && character.id !== followedCharacterId && (
                   <FollowInsteadButton characterId={character.id} />
                 )}
+                <Suspense>
+                  <CompareCheckbox characterId={character.id} />
+                </Suspense>
               </div>
             );
           })}

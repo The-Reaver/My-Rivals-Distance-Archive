@@ -2,6 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { FieldNoteParagraph } from "@/components/FieldNoteParagraph";
 import { extractParagraphText, hashParagraph } from "@/lib/fieldNotes";
+import { CrossLinkAnchor } from "@/components/CrossLinkAnchor";
 
 /** Passed only from the chronicle reader (Field Notes, Idea 3) -- every
  * other Markdown caller (archive documents, onyx_commentary) omits this
@@ -10,6 +11,12 @@ export type FieldNotesConfig = {
   chronicleEntryId: string;
   markedHashes: ReadonlySet<string>;
   isSignedIn: boolean;
+};
+
+/** Passed only from /world/[id] (Connective Tissue Trails, Idea 8) --
+ * every other Markdown caller renders plain, untracked links. */
+export type ConnectiveTissueConfig = {
+  sourceId: string;
 };
 
 // Renders trusted, admin-authored body_markdown (chronicle entries, world
@@ -23,9 +30,11 @@ export type FieldNotesConfig = {
 export function Markdown({
   children,
   fieldNotes,
+  connectiveTissue,
 }: {
   children: string;
   fieldNotes?: FieldNotesConfig;
+  connectiveTissue?: ConnectiveTissueConfig;
 }) {
   // Captured in this render's closure and incremented once per paragraph
   // in document order -- react-markdown invokes the `p` renderer
@@ -67,9 +76,12 @@ export function Markdown({
               </FieldNoteParagraph>
             );
           },
-          a: (props) => (
-            <a className="text-accent-gold underline underline-offset-2" {...props} />
-          ),
+          a: (props) => {
+            if (!connectiveTissue) {
+              return <a className="text-accent-gold underline underline-offset-2" {...props} />;
+            }
+            return <CrossLinkAnchor sourceId={connectiveTissue.sourceId} {...props} />;
+          },
           ul: (props) => <ul className="mt-md list-disc space-y-xs pl-lg" {...props} />,
           ol: (props) => <ol className="mt-md list-decimal space-y-xs pl-lg" {...props} />,
           blockquote: (props) => (
