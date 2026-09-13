@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { bookPlacementLabel } from "@/lib/format";
 import { Markdown } from "@/components/Markdown";
 import { RequestChronicleButton } from "@/components/RequestChronicleButton";
+import { ShareButton } from "@/components/ShareButton";
 
 // Character dossier page -- Level 0 discovery layer (characters_select_all
 // RLS policy is unrestricted), linked from the Character Index. Chronicle
@@ -105,6 +106,9 @@ export default async function CharacterDetailPage({
           <p className="mt-sm font-body text-body text-text-primary">{character.hook_line}</p>
         )}
         <p className="mt-sm font-mono text-metric text-accent-gold">{score} demand</p>
+        <div className="mt-xs">
+          <ShareButton entityType="character" entityId={character.id} />
+        </div>
 
         {character.dossier_cover && (
           <div className="mt-lg">

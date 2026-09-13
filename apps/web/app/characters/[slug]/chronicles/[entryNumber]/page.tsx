@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { bookPlacementLabel } from "@/lib/format";
 import { Markdown } from "@/components/Markdown";
 import { ReadingProgressTracker } from "@/components/ReadingProgressTracker";
+import { ShareButton } from "@/components/ShareButton";
 
 // Chronicle reader -- the page every /characters/[slug] link and every
 // admin ChronicleEditor.tsx save has been pointing at without it existing.
@@ -110,6 +111,9 @@ export default async function ChronicleEntryPage({
             {new Date(entry.publish_date).toLocaleDateString()}
           </p>
         )}
+        <div className="mt-xs">
+          <ShareButton entityType="chronicle_entry" entityId={entry.id} />
+        </div>
 
         {entry.body_markdown && (
           <Markdown

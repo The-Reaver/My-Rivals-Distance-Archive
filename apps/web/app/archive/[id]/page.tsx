@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { titleCase, bookPlacementLabel } from "@/lib/format";
 import { Markdown } from "@/components/Markdown";
+import { ShareButton } from "@/components/ShareButton";
 
 // Detail reader for a single archive_documents row. RLS already limits what
 // this query can return to storage_mode = 'live' rows at or below the
@@ -75,6 +76,9 @@ export default async function ArchiveDocumentPage({
         {doc.tags && doc.tags.length > 0 && (
           <p className="mt-sm font-mono text-caption text-accent-steel">{doc.tags.join(" · ")}</p>
         )}
+        <div className="mt-xs">
+          <ShareButton entityType="archive_document" entityId={doc.id} />
+        </div>
 
         {doc.body_markdown && <Markdown>{doc.body_markdown}</Markdown>}
 

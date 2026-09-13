@@ -14,7 +14,7 @@ gamified five-tier reader-unlock model, but building this app is a separate, par
 
 ## Status as of 2026-09-13
 
-Fifteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
+Sixteen commits on `claude/lovable-build-review-nmep29` (the repo's only branch; no `main`
 exists yet). Well past "Phase 0: establish ground truth" as the Game Plan originally scoped
 it on 20 August 2026 — a meaningful slice of Phase 1 (RLS, identity-fraud groundwork) and
 Phase 2 (the reader loop's actual routes) now exists too. This file records what's been
@@ -290,6 +290,32 @@ build output; all 12 migrations (auth stub + 11 real) apply cleanly against real
 every functional check above done by hand this session against a scratch database, plus the
 standalone hash-determinism check.
 
+**2026-09-13, same-day follow-up #9 — Shares tracking.** `shares` (0001) had RLS
+(`shares_select_own`/`shares_insert_own`, own-row only) but no writer and, unlike every other
+controlled-vocabulary column in this schema, no `CHECK` on `entity_type`. `0012_shares_entity_type_check.sql`
+adds `check (entity_type in ('character', 'chronicle_entry', 'archive_document'))` — safe to add
+directly since the table has never been written to (verified empty at migration time; no
+backfill/validation concern). New `components/ShareButton.tsx` uses the Web Share API where
+available (mobile browsers, mostly), falling back to a clipboard copy everywhere else, and logs
+one `shares` row for a signed-in reader either way (silently skipped for signed-out visitors,
+same posture as every other reader-write feature). A real ordering constraint, gotten right
+rather than discovered later: `navigator.share()` needs a live user-activation gesture, which an
+earlier `await` (e.g. checking auth state first) can let expire, silently turning a genuine share
+into a `NotAllowedError` — so the share/copy action is the very first `await` reached from the
+click handler, and the Supabase insert happens only after it succeeds. Wired onto all three
+detail pages with their own content: `/characters/[slug]` (`entity_type='character'`),
+the chronicle reader (`'chronicle_entry'`), and `/archive/[id]` (`'archive_document'`).
+
+**Verified for real against local Postgres**: a valid share insert succeeds; an invalid
+`entity_type` is rejected by the new `CHECK` constraint; an impersonation attempt (a different
+reader's `reader_id`) is rejected by RLS (`42501`); and a second reader's `SELECT` returns zero
+rows.
+
+Verified: `npm run typecheck` and `npm run build` both clean (no new routes — `ShareButton` is a
+component embedded in three existing pages, not a page of its own); all 13 migrations (auth stub
++ 12 real) apply cleanly against real Postgres 16; every functional check above done by hand this
+session against a scratch database.
+
 **2026-09-13 follow-up:** `app/extraction.py` and `app/ratification.py` are no longer
 skeleton-only. `app/db.py` (a sync `psycopg_pool` connection pool), `app/repositories.py`
 (real `PostgresKnowledgeCoreRepository` / `PostgresExtractionRepository` implementations of
@@ -382,7 +408,7 @@ review's device-bridge session was being set up separately):**
 - `npm audit`: zero vulnerabilities.
 - Git history and tracked files checked for leaked secrets: clean (see prior pass's note on
   the publishable anon key being safe by design).
-- All 11 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
+- All 13 SQL migrations apply cleanly in order against a real Postgres 16 instance (not just
   parsed) — see `supabase/testing/local_auth_stub.sql` and `.github/workflows/ci.yml`.
 
 ## Repo layout
@@ -427,6 +453,9 @@ apps/web/                  Next.js 16 (App Router, Turbopack) + React 19 + Tailw
   lib/fieldNotes.ts             extractParagraphText()/hashParagraph() -- the deterministic
                                  paragraph-anchoring scheme the game plan itself calls for.
   app/field-notes/              Reader's own marked passages, newest first.
+  components/ShareButton.tsx    Web Share API with a clipboard-copy fallback; logs one shares
+                                 row for a signed-in reader. Used on character/chronicle/
+                                 archive-document detail pages.
   app/admin/(dashboard)/knowledge-core/  List-by-status + detail views over canon-service's
                                  /knowledge-core/entries* routes (never queries
                                  knowledge_core directly -- it's invisible to anon/
@@ -452,7 +481,7 @@ services/canon-service/    FastAPI (Python). Owns everything LLM-orchestration-h
   app/routes_knowledge_core.py  GET /knowledge-core/entries (+ ?status=), GET .../{id},
                                  POST .../{id}/transition, POST /knowledge-core/extractions --
                                  all admin-gated; the two POSTs each one Postgres transaction.
-supabase/migrations/       11 migrations, applied in order:
+supabase/migrations/       12 migrations, applied in order:
   0001_operational_schema.sql       Reader-facing tables (characters, chronicle_entries,
                                      world_briefings, archive_documents, quiz_questions,
                                      admin_settings, reader_profiles, chronicle_requests,
@@ -489,6 +518,8 @@ supabase/migrations/       11 migrations, applied in order:
                                      only legal path to changing followed_character_id now --
                                      direct UPDATE on reader_profiles is revoked outright).
   0011_field_notes.sql              field_notes table (reader-own/admin only, NOT public).
+  0012_shares_entity_type_check.sql  Adds the CHECK constraint shares (0001) was missing,
+                                     matching every other controlled-vocabulary column.
 supabase/testing/
   local_auth_stub.sql        Local/CI-only stand-in for Supabase's auth schema and
                              anon/authenticated/service_role roles, PLUS the public-schema
